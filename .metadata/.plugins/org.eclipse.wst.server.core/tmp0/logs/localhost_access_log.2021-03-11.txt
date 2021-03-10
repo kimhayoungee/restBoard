@@ -1,0 +1,10 @@
+127.0.0.1 - - [11/Mar/2021:00:26:29 +0900] "GET / HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [11/Mar/2021:00:26:29 +0900] "GET /WEB-INF/classes/com/my/controller/BoardController.java HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [11/Mar/2021:00:26:45 +0900] "POST /member/ticket HTTP/1.1" 400 843
+0:0:0:0:0:0:0:1 - - [11/Mar/2021:00:28:34 +0900] "GET /member/ticket HTTP/1.1" 405 801
+0:0:0:0:0:0:0:1 - - [11/Mar/2021:00:31:42 +0900] "GET /member/ticket HTTP/1.1" 405 801
+127.0.0.1 - - [11/Mar/2021:00:33:11 +0900] "GET / HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [11/Mar/2021:00:33:12 +0900] "GET /WEB-INF/classes/com/my/controller/MemberController.java HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [11/Mar/2021:00:33:14 +0900] "GET /member/ticket HTTP/1.1" 405 801
+0:0:0:0:0:0:0:1 - - [11/Mar/2021:00:33:20 +0900] "POST /member/ticket HTTP/1.1" 400 843
+0:0:0:0:0:0:0:1 - - [11/Mar/2021:00:34:10 +0900] "POST /member/ticket HTTP/1.1" 400 843

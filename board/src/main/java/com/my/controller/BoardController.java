@@ -18,7 +18,7 @@ import com.my.service.BoardService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
-@Controller
+//@Controller
 @RequestMapping("/board/*")
 @Log4j
 public class BoardController {
@@ -26,14 +26,6 @@ public class BoardController {
 		@Autowired
 		private BoardService service;
 		
-/*		@GetMapping("/list")
-		public String getList(Model model) {			
-			log.info("컨트롤러 getList");
-			
-			model.addAttribute("boardList", service.getList());
-			return "board/list";
-		}
-*/
 		@GetMapping("/list")
 		public String getList(Criteria cri, Model model) {
 			log.info("컨트롤러 getList");
