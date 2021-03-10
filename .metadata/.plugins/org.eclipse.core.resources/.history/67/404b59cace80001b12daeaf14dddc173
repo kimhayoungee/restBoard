@@ -1,0 +1,19 @@
+package com.my.domain;
+
+import lombok.Getter;
+import lombok.ToString;
+
+@Getter
+@ToString
+public class PageVO {
+
+	private int startPage;
+	private int endPage;
+	private boolean prev, next;
+	
+	private int total;
+	private Criteria cri;
+	
+	
+	
+}

@@ -1,0 +1,8 @@
+package com.my.domain;
+
+public class PageVO {
+
+	private int pageNum;
+	private int amount;
+	
+}

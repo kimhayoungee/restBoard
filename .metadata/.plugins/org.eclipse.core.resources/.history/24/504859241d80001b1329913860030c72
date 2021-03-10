@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.mapper.BoardMapper">
+
+	<select id="selectList" resultType="com.my.domain.BoardVO">
+		select * from khy_board
+		where bdeleteyn = 'Y'
+		order by bno desc
+	</select>
+
+	<select id="selectListPaging" resultType="com.my.domain.BoardVO">
+		<![CDATA[
+			select a.*
+			from  (select b.*
+			             ,rownum r
+			       from  (select * 
+			              from khy_board 
+			              order by bno *1 desc) b
+			       where  rownum <= #{pageNum} * #{amount}) a
+			where  r > #{}
+		]]>
+	</select>
+
+	<select id="getNumber" resultType="string">
+		select nvl2(max(bno), 'B'||lpad(replace(max(bno),'B','') + 1, 5, '0'), 'B00001')
+		from   khy_board
+	</select>
+	
+	<insert id="insertBoard">
+		insert into khy_board (bno, bid, btitle, bcontent, bfile, bregdate, bupdatedate, bdeleteyn)
+		values (#{bno}, #{bid, jdbcType=VARCHAR}, #{btitle}, #{bcontent}, #{bfile, jdbcType=VARCHAR}, sysdate, sysdate, 'Y')
+	</insert>
+
+	<select id="selectDetail" resultType="com.my.domain.BoardVO">
+		select * 
+		from   khy_board
+		where  bno = #{bno}
+		and    bdeleteyn = 'Y'
+	</select>
+	
+	<update id="updateBoard">
+		update khy_board
+		set	   btitle     = #{btitle}
+		      ,bcontent   = #{bcontent}
+		      ,bfile      = #{bfile, jdbcType=VARCHAR}
+		      ,bupdatedate= sysdate
+		where  bno = #{bno}
+		and    bdeleteyn = 'Y'
+	</update>
+	
+	<update id="deleteBoard">
+		update khy_board
+		set    bdeleteyn   = 'N'
+		      ,bupdatedate = sysdate
+		where  bno = #{bno}
+		and    bdeleteyn = 'Y'
+	</update>
+	
+</mapper>

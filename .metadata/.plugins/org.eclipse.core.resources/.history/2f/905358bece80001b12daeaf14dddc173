@@ -1,0 +1,8 @@
+package com.my.domain;
+
+@Getter
+@ToString
+public class PageVO {
+
+	
+}

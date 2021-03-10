@@ -1,0 +1,11 @@
+package com.my.domain;
+
+@Getter
+@Setter
+@ToString
+public class PageVO {
+
+	private int pageNum;
+	private int amount;
+	
+}
