@@ -35,8 +35,8 @@ public class ReplyMapperTest {
 			ReplyVO rvo = new ReplyVO();
 			
 			rvo.setBno(bnoList[i]);
-			rvo.setReply("댓글 테스트" + (i+1));
-			rvo.setRid("happy" + (i+1));
+			rvo.setReply("댓글 테스트" + i);
+			rvo.setRid("happy" + i);
 			
 			m.insert(rvo);
 		}

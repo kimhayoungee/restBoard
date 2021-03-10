@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ReplyMapperTest" project="board" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="com.my.mapper.ReplyMapperTest" time="0.242">
+    <testcase name="testInsert" classname="com.my.mapper.ReplyMapperTest" time="0.242">
+      <error>org.springframework.jdbc.BadSqlGrammarException: &#13;
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: ORA-02289: sequence does not exist
+&#13;
+### The error may involve defaultParameterMap&#13;
+### The error occurred while setting parameters&#13;
+### SQL: insert into khy_reply(rno, bno, rid, reply, replydate, rupdatedate, rdeleteyn)    values(seq_reply.nextval, ?, ?, ?, sysdate, sysdate, 'Y')&#13;
+### Cause: java.sql.SQLSyntaxErrorException: ORA-02289: sequence does not exist
+
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: ORA-02289: sequence does not exist
+&#13;
+	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:93)&#13;
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)&#13;
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:81)&#13;
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:73)&#13;
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)&#13;
+	at com.sun.proxy.$Proxy21.insert(Unknown Source)&#13;
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:278)&#13;
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:58)&#13;
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)&#13;
+	at com.sun.proxy.$Proxy23.insert(Unknown Source)&#13;
+	at com.my.mapper.ReplyMapperTest.testInsert(ReplyMapperTest.java:41)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:498)&#13;
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)&#13;
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)&#13;
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)&#13;
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:73)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:83)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)&#13;
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)&#13;
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)&#13;
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)&#13;
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)&#13;
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)&#13;
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)&#13;
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)&#13;
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)&#13;
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)&#13;
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)&#13;
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)&#13;
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)&#13;
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)&#13;
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)&#13;
+Caused by: java.sql.SQLSyntaxErrorException: ORA-02289: sequence does not exist
+&#13;
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:509)&#13;
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:461)&#13;
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1104)&#13;
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:550)&#13;
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:268)&#13;
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:655)&#13;
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:270)&#13;
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:91)&#13;
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForRows(T4CPreparedStatement.java:970)&#13;
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1205)&#13;
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3666)&#13;
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1426)&#13;
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3778)&#13;
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1081)&#13;
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)&#13;
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)&#13;
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)&#13;
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:46)&#13;
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)&#13;
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)&#13;
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)&#13;
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)&#13;
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:198)&#13;
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:185)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)&#13;
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)&#13;
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;
+	at java.lang.reflect.Method.invoke(Method.java:498)&#13;
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)&#13;
+	... 37 more&#13;
+Caused by: Error : 2289, Position : 89, Sql = insert into khy_reply(rno, bno, rid, reply, replydate, rupdatedate, rdeleteyn)
+ 		values(seq_reply.nextval, :1 , :2 , :3 , sysdate, sysdate, 'Y'), OriginalSql = insert into khy_reply(rno, bno, rid, reply, replydate, rupdatedate, rdeleteyn)
+ 		values(seq_reply.nextval, ?, ?, ?, sysdate, sysdate, 'Y'), Error Msg = ORA-02289: sequence does not exist
+&#13;
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:513)&#13;
+	... 65 more&#13;
+&#13;
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

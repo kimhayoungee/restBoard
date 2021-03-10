@@ -18,11 +18,11 @@ import lombok.extern.log4j.Log4j;
 public class ReplyMapperTest {
 
 	@Autowired
-	private ReplyMapper m;
+	private ReplyMapper rm;
 	
 //	@Test
 	public void testMapper() {
-		log.info(m);
+		log.info(rm);
 	}
 	
 	private String[] bnoList = {"655308", "655307", "655306", "655305", "655304"};
@@ -31,15 +31,16 @@ public class ReplyMapperTest {
 	@Test
 	public void testInsert() {
 		
-		for(int i=0;i<5;i++) {
+		IntStream.rangeClosed(1, 10).forEach(i -> {
+			
 			ReplyVO rvo = new ReplyVO();
 			
 			rvo.setBno(bnoList[i]);
-			rvo.setReply("댓글 테스트" + (i+1));
-			rvo.setRid("happy" + (i+1));
+			rvo.setReply("댓글 테스트 " + i);
+			rvo.setRid("happy" + i);
 			
-			m.insert(rvo);
-		}
+			rm.insert(rvo);
+		});
 		
 	} //end of testInsert()
 }

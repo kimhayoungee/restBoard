@@ -4,6 +4,10 @@
  
  <mapper namespace="com.my.mapper.ReplyMapper">
  
+ 	<insert id="insert">
+ 		insert into khy_reply(rno, bno, rid, reply, replydate, rupdatedate, rdeleteyn)
+ 		values(seq_reply.nextval, #{bno}, #{rid}, #{reply}, sysdate, sysdate, 'Y')
+ 	</insert>
  
  </mapper>
  

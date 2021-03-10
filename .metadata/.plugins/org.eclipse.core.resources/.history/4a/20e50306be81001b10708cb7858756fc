@@ -34,9 +34,9 @@ public class ReplyMapperTest {
 		for(int i=0;i<5;i++) {
 			ReplyVO rvo = new ReplyVO();
 			
-			rvo.setBno(bnoList[i]);
-			rvo.setReply("댓글 테스트" + (i+1));
-			rvo.setRid("happy" + (i+1));
+			rvo.setBno(bnoList[i]+1);
+			rvo.setReply("댓글 테스트" + i);
+			rvo.setRid("happy" + i);
 			
 			m.insert(rvo);
 		}

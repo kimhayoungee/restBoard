@@ -6,7 +6,7 @@
  
  	<insert id="insert">
  		insert into khy_reply(rno, bno, rid, reply, replydate, rupdatedate, rdeleteyn)
- 		values(seq_reply.nextval, #{bno}, #{rid}, #{reply}, sysdate, sysdate, 'Y')
+ 		values(seq_reply.nextval, #{rno}, #{bno}, #{rid}, #{reply}, sysdate, sysdate, 'Y');
  	</insert>
  
  </mapper>

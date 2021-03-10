@@ -1,14 +1,10 @@
 package com.my.mapper;
 
-import java.util.stream.IntStream;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import com.my.domain.ReplyVO;
 
 import lombok.extern.log4j.Log4j;
 
@@ -18,28 +14,12 @@ import lombok.extern.log4j.Log4j;
 public class ReplyMapperTest {
 
 	@Autowired
-	private ReplyMapper m;
-	
-//	@Test
-	public void testMapper() {
-		log.info(m);
-	}
-	
-	private String[] bnoList = {"655308", "655307", "655306", "655305", "655304"};
-	
+	private ReplyMapper rm;
 	
 	@Test
-	public void testInsert() {
-		
-		for(int i=0;i<5;i++) {
-			ReplyVO rvo = new ReplyVO();
-			
-			rvo.setBno(bnoList[i]);
-			rvo.setReply("댓글 테스트" + (i+1));
-			rvo.setRid("happy" + (i+1));
-			
-			m.insert(rvo);
-		}
-		
-	} //end of testInsert()
+	public void testMapper() {
+		log.info(rm);
+	}
+	
+	
 }
