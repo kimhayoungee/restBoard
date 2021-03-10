@@ -1,0 +1,12 @@
+package com.my.mapper;
+
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunWith(SpringRunner.class)
+@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
+@Log4j
+public class ReplyMapperTest {
+
+	
+	
+}

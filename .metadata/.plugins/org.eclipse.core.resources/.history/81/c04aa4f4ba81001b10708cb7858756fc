@@ -1,0 +1,8 @@
+package com.my.mapper;
+
+public interface ReplyMapper {
+
+	public int insert(ReplyVO rvo);
+	
+	
+} //end of ReplyMapper
