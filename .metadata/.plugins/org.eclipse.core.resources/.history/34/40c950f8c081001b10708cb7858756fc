@@ -52,7 +52,7 @@ public class ReplyMapperTest {
 		
 	}
 	
-//	@Test
+	@Test
 	public void testUpdate() {
 		
 		ReplyVO rvo = new ReplyVO();
@@ -64,11 +64,7 @@ public class ReplyMapperTest {
 		
 	}
 	
-	@Test
 	public void testDelete() {
-		
-		int result = m.delete(1);
-		log.info("삭제확인: " + result);
 		
 	}
 }

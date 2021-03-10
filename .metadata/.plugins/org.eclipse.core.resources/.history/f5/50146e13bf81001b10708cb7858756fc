@@ -9,25 +9,10 @@
  		values(seq_reply.nextval, #{bno}, #{rid}, #{reply}, sysdate, sysdate, 'Y')
  	</insert>
  
- 	<select id="select" resultType="com.my.domain.ReplyVO">
+ 	<select id="select">
  		select *
  		from   khy_reply
  		where  rno = #{rno}
- 		and    rdeleteyn = 'Y'
  	</select>
- 	
- 	<update id="update">
- 		update khy_reply
- 		set    reply = #{reply}
- 		      ,rupdatedate = sysdate   
- 	    where  rno = #{rno}
- 	</update>
- 	
- 	<update id="delete">
- 		update khy_reply
- 		set    rdeleteyn = 'N'
- 		      ,rupdatedate = sysdate
- 		where  rno = #{rno}
- 	</update>
  </mapper>
  

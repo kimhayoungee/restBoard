@@ -8,7 +8,4 @@ public interface ReplyMapper {
 	
 	public ReplyVO select(int rno);
 	
-	public int update(ReplyVO rvo);
-	
-	public int delete(int rno);
 } //end of ReplyMapper

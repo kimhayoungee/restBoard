@@ -6,9 +6,6 @@ public interface ReplyMapper {
 
 	public int insert(ReplyVO rvo);
 	
-	public ReplyVO select(int rno);
+	public ReplyVO select(String rno);
 	
-	public int update(ReplyVO rvo);
-	
-	public int delete(int rno);
 } //end of ReplyMapper

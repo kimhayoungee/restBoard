@@ -13,21 +13,12 @@
  		select *
  		from   khy_reply
  		where  rno = #{rno}
- 		and    rdeleteyn = 'Y'
  	</select>
  	
  	<update id="update">
  		update khy_reply
  		set    reply = #{reply}
  		      ,rupdatedate = sysdate   
- 	    where  rno = #{rno}
- 	</update>
- 	
- 	<update id="delete">
- 		update khy_reply
- 		set    rdeleteyn = 'N'
- 		      ,rupdatedate = sysdate
- 		where  rno = #{rno}
  	</update>
  </mapper>
  

@@ -41,34 +41,17 @@ public class ReplyMapperTest {
 			m.insert(rvo);
 		}
 		
-	}
+	} //end of testInsert()
 	
-//	@Test
+	@Test
 	public void testSelect() {
 		
-		ReplyVO rvo = m.select(1);
+		int rno = 1;
+		
+		ReplyVO rvo = m.select(rno);
 		
 		log.info(rvo);
 		
 	}
 	
-//	@Test
-	public void testUpdate() {
-		
-		ReplyVO rvo = new ReplyVO();
-		rvo.setRno(1);
-		rvo.setReply("댓글내용 수정합니다");
-		
-		int result = m.update(rvo);
-		log.info("수정확인 : " + result);
-		
-	}
-	
-	@Test
-	public void testDelete() {
-		
-		int result = m.delete(1);
-		log.info("삭제확인: " + result);
-		
-	}
 }

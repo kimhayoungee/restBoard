@@ -52,23 +52,16 @@ public class ReplyMapperTest {
 		
 	}
 	
-//	@Test
+	@Test
 	public void testUpdate() {
 		
 		ReplyVO rvo = new ReplyVO();
-		rvo.setRno(1);
+		rvo.setBno("655281");
 		rvo.setReply("댓글내용 수정합니다");
-		
-		int result = m.update(rvo);
-		log.info("수정확인 : " + result);
 		
 	}
 	
-	@Test
 	public void testDelete() {
-		
-		int result = m.delete(1);
-		log.info("삭제확인: " + result);
 		
 	}
 }
