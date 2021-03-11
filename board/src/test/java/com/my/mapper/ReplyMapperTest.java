@@ -1,5 +1,6 @@
 package com.my.mapper;
 
+import java.util.List;
 import java.util.stream.IntStream;
 
 import org.junit.Test;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.my.domain.Criteria;
 import com.my.domain.ReplyVO;
 
 import lombok.extern.log4j.Log4j;
@@ -31,15 +33,15 @@ public class ReplyMapperTest {
 //	@Test
 	public void testInsert() {
 		
-		for(int i=0;i<5;i++) {
+		IntStream.rangeClosed(1, 10).forEach(i ->{
 			ReplyVO rvo = new ReplyVO();
 			
-			rvo.setBno(bnoList[i]);
-			rvo.setReply("댓글 테스트" + (i+1));
-			rvo.setRid("happy" + (i+1));
+			rvo.setBno(bnoList[i%5]);
+			rvo.setReply("댓글테스트" + i);
+			rvo.setRid("happy" + i);
 			
 			m.insert(rvo);
-		}
+		});
 		
 	}
 	
@@ -64,11 +66,20 @@ public class ReplyMapperTest {
 		
 	}
 	
-	@Test
+//	@Test
 	public void testDelete() {
 		
 		int result = m.delete(1);
 		log.info("삭제확인: " + result);
 		
+	}
+	
+//	@Test
+	public void testGetListPaging() {
+		Criteria cri = new Criteria();
+		
+		List<ReplyVO> replies = m.getListPaging(cri, bnoList[0]);
+		
+		replies.forEach(reply -> log.info(reply));
 	}
 }

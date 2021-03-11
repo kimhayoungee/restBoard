@@ -1,5 +1,10 @@
 package com.my.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.my.domain.Criteria;
 import com.my.domain.ReplyVO;
 
 public interface ReplyMapper {
@@ -11,4 +16,6 @@ public interface ReplyMapper {
 	public int update(ReplyVO rvo);
 	
 	public int delete(int rno);
+	
+	public List<ReplyVO> getListPaging(@Param("cri") Criteria cri, @Param("bno") String bno);
 } //end of ReplyMapper
