@@ -30,11 +30,11 @@ public class BoardMapperTest {
 //	@Test
 	public void testselectListPaging() {
 		
-		Criteria pvo = new Criteria();
-		pvo.setAmount(10);
-		pvo.setPageNum(5);
+		Criteria cri = new Criteria();
+		cri.setAmount(10);
+		cri.setPageNum(5);
 		
-		mapper.selectListPaging(pvo).forEach(board -> log.info(board.getBno()));
+		mapper.selectListPaging(cri).forEach(board -> log.info(board.getBno()));
 		
 	}
 	

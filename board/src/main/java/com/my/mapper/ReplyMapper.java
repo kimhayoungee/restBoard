@@ -18,4 +18,6 @@ public interface ReplyMapper {
 	public int delete(int rno);
 	
 	public List<ReplyVO> getListPaging(@Param("cri") Criteria cri, @Param("bno") String bno);
+	
+	public int getCount(String bno);
 } //end of ReplyMapper

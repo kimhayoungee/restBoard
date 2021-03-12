@@ -1,0 +1,16 @@
+package com.my.domain;
+
+import java.util.List;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+@Getter
+public class ReplyPageVO {
+
+	private int replyCnt;
+	private List<ReplyVO> list;
+	
+} //end of ReplyPageVO

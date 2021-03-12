@@ -74,12 +74,12 @@ public class ReplyMapperTest {
 		
 	}
 	
-//	@Test
+	@Test
 	public void testGetListPaging() {
-		Criteria cri = new Criteria();
+		Criteria cri = new Criteria(2, 10);
 		
-		List<ReplyVO> replies = m.getListPaging(cri, bnoList[0]);
+		m.getListPaging(cri, "655308").forEach(reply -> log.info(reply));
 		
-		replies.forEach(reply -> log.info(reply));
+		
 	}
 } //end of ReplyMapperTest

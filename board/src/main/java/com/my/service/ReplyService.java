@@ -3,6 +3,7 @@ package com.my.service;
 import java.util.List;
 
 import com.my.domain.Criteria;
+import com.my.domain.ReplyPageVO;
 import com.my.domain.ReplyVO;
 
 public interface ReplyService {
@@ -17,4 +18,5 @@ public interface ReplyService {
 	
 	public List<ReplyVO> getList(Criteria cri, String bno);
 	
+	public ReplyPageVO getListPaging(Criteria cri, String bno);
 } //end of ReplyService

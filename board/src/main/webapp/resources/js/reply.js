@@ -36,7 +36,7 @@ var replyService = (function(){
 		$.getJSON("/reply/page/" + bno + "/" + pageNum + ".json"
 			,function(data){
 				if(callback){
-					callback(data);
+					callback(data.replyCnt, data.list);
 				}
 			}
 		).fail(function(xhr, status, err){

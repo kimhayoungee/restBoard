@@ -36,12 +36,19 @@
 		showList(1);
 		
 		function showList(pageNum){
-			replyService.getList({bno:bnoVal, pageNum:pageNum||1}, function(list){
-				var str="";
+			replyService.getList({bno:bnoVal, pageNum:pageNum||1}, function(replyCnt, list){
+				console.log("replyCnt: " + replyCnt);
+				console.log("list: " + list);
+				console.log(list);
 				
+				if(pageNum == -1){
+					pageNum = Math.ceil(replyCnt/10.0);
+					showList(pageNum);
+					return;
+				}
+				
+				var str="";
 				if(list==null || list.length==0){
-					replyUL.html("");
-					
 					return;
 				}
 				
@@ -108,7 +115,7 @@
 				modal.find("input").val("");
 				modal.modal("hide");
 				
-				showList(1);
+				showList(-1);
 			});
 		});
 		
@@ -135,51 +142,11 @@
 				showList(1);
 				
 			});
-			
-		});
-
-		
-		
-/* 		replyService.add(
-			 {reply:"JS TEST", rid:"tester", bno:bnoVal}
-			,function(result){
-				alert("RESULT: " + result);
-			}
-		); 
-		
-		replyService.getList({bno:bnoVal, pageNum:1}, function(list){
-			
-			for(var i=0, len=list.length||0; i<len; i++){
-				console.log(list[i]);
-			}
 		});
 		
-		replyService.remove(11
-		,function(result){
-			console.log(result);
-			
-			if(result === "success"){
-				
-				alert("삭제 성공");
-			}			
-			
-		},function(err){
-			alert("에러" + err);
-		});
-		
-		replyService.edit({
-			 rno : 13
-			,bno : bnoVal
-			,reply : "수정수정"
-		}, function(result){
-			alert("수정 완료");
-			
-		});
-		
-		replyService.get(10, function(data){
-			console.log(data);
-		});*/
-		
+		//댓글페이징
+		var pageNum = 1;
+		var replyPageFooter = $(".panel-footer");
     }); //end of ready함수
     </script>
     
@@ -389,17 +356,23 @@
                     
                     <!-- 댓글 -->
 					<div class="card shadow mb-4">
+						<!-- 댓글 헤더 -->
 						<div class="card-header py-3">
 							<i class="fa fa-comments fa-fw"></i> Reply &nbsp;&nbsp;
 							<button id='addReplyBtn' class='btn btn-outline-primary'>댓글 작성</button>
 						</div>
 						
+						<!-- 댓글목록 -->
 						<div class="card-body">
 							<ul class="chat">
 			
 							</ul>
 						</div>
-						<!-- end of 댓글 card-body -->
+						
+						<!-- 댓글페이징 -->
+						<div class="panel-footer">
+						
+						</div>
 					</div>
 					<!-- end of 댓글 card -->
 					

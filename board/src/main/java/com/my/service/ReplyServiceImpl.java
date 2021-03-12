@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.my.domain.Criteria;
+import com.my.domain.ReplyPageVO;
 import com.my.domain.ReplyVO;
 import com.my.mapper.ReplyMapper;
 
@@ -58,4 +59,9 @@ public class ReplyServiceImpl implements ReplyService {
 		return m.getListPaging(cri, bno);
 	}
 
+	public ReplyPageVO getListPaging(Criteria cri, String bno) {
+		log.info("서비스 getListPaging(cri, bno) " + cri + " " + bno);
+		
+		return new ReplyPageVO(m.getCount(bno), m.getListPaging(cri, bno));
+	}
 } //end of ReplyServiceImpl

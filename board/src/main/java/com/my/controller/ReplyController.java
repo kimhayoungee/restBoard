@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.my.domain.Criteria;
+import com.my.domain.ReplyPageVO;
 import com.my.domain.ReplyVO;
 import com.my.service.ReplyService;
 
@@ -39,12 +40,12 @@ public class ReplyController {
 	}
 	
 	@GetMapping(value="/page/{bno}/{pageNum}", produces= {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<List<ReplyVO>> getList(@PathVariable("bno") String bno, @PathVariable("pageNum") int pageNum){
+	public ResponseEntity<ReplyPageVO> getList(@PathVariable("bno") String bno, @PathVariable("pageNum") int pageNum){
 		log.info("컨트롤러 getList");
 		
 		Criteria cri = new Criteria(pageNum, 10);
 		
-		return new ResponseEntity<>(s.getList(cri, bno), HttpStatus.OK);
+		return new ResponseEntity<>(s.getListPaging(cri, bno), HttpStatus.OK);
 	}
 	
 	@PostMapping(value="edit", consumes="application/json", produces= {MediaType.TEXT_PLAIN_VALUE})

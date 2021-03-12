@@ -31,11 +31,23 @@
  	</update>
  	
  	<select id="getListPaging" resultType="com.my.domain.ReplyVO">
- 		select rno, bno, rid, reply, replydate, rupdatedate
+ 	<![CDATA[
+ 		select a.*
+ 		from  (select b.*, rownum r
+ 			   from   khy_reply b 
+ 			   where  bno = #{bno}
+ 			   and    rdeleteyn = 'Y'
+ 			   and    rownum <= #{cri.pageNum} * #{cri.amount}
+ 			   order by rno *1 asc) a
+		where  r > (#{cri.pageNum}-1) * #{cri.amount}
+	]]>	
+ 	</select>
+ 	
+ 	<select id="getCount" resultType="int">
+ 		select count(rno)
  		from   khy_reply
- 		where  bno = #{bno}
- 		and    rdeleteyn = 'Y'
- 		order by rno asc
+ 		where  rdeleteyn = 'Y'
+ 		and    bno = #{bno}
  	</select>
  </mapper>
  
