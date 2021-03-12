@@ -1,0 +1,40 @@
+package com.my.service;
+
+import java.util.List;
+
+import com.my.domain.Criteria;
+import com.my.domain.ReplyVO;
+
+public class ReplyServiceImpl implements ReplyService {
+
+	@Override
+	public int register(ReplyVO rvo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ReplyVO getReply(int rno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int editReply(ReplyVO rvo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int removeReply(int rno) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<ReplyVO> getList(Criteria cri, String bno) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

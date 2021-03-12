@@ -8,10 +8,11 @@
 <head>
 	<title>게시글 보기</title>
 	<%@include file="../includes/header.jsp" %>
+    <script type="text/javascript" src="/resources/js/reply.js"></script>
     
     <script>
     $(document).ready(function(){
-       
+      
       //버튼이벤트
         var operForm = $("#operForm");
         
@@ -27,6 +28,35 @@
 			operForm.attr("action","/board/list").submit();
 			
 		});
+		
+		console.log("=====")
+		console.log("JS TEST")
+		
+		var bnoVal = '<c:out value="${bvo.bno}" />';
+		
+/* 		replyService.add(
+			 {reply:"JS TEST", rid:"tester", bno:bnoVal}
+			,function(result){
+				alert("RESULT: " + result);
+			}
+		); 
+		
+		replyService.getList({bno:bnoVal, pageNum:1}, function(list){
+			
+			for(var i=0, len=list.length||0; i<len; i++){
+				console.log(list[i]);
+			}
+		});*/
+		
+		replyService.remove(){
+			console.log(result);
+			
+			if(result === "success"){
+				
+				alert("REMOVED");
+			}
+		}
+		
     });
     </script>
     
@@ -210,15 +240,15 @@
                         <div class="card-body">
                        
                        	<div class="form-group">
-                       		<label>제목</label> <input class="form-control" value='<c:out value="${bvo.btitle}"/>' >
+                       		<label>제목</label> <input class="form-control" value='<c:out value="${bvo.btitle}"/>' readonly>
                        	</div>
                        	
                        	<div class="form-group">
-                       		<label>내용</label> <textarea class="form-control"><c:out value="${bvo.bcontent}"/></textarea>
+                       		<label>내용</label> <textarea class="form-control" readonly><c:out value="${bvo.bcontent}"/></textarea>
                        	</div>
                         
                      	<div class="form-group">
-                       		<label>작성일</label> <input class="form-control" value='<fmt:formatDate pattern="yyyy-MM-dd" value="${bvo.bregdate}"/>' >
+                       		<label>작성일</label> <input class="form-control" value='<fmt:formatDate pattern="yyyy-MM-dd" value="${bvo.bregdate}"/>' readonly>
                        	</div>                        
                         	
                          <form id='operForm' action="/board/edit" method="get">	

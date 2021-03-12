@@ -82,4 +82,4 @@ public class ReplyMapperTest {
 		
 		replies.forEach(reply -> log.info(reply));
 	}
-}
+} //end of ReplyMapperTest

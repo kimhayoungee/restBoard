@@ -18,7 +18,7 @@ import lombok.extern.log4j.Log4j;
 public class BoardServiceImpl implements BoardService {
 
 	@Autowired
-	private BoardMapper mapper;
+	private BoardMapper m;
 	
 /*	@Override
 	public List<BoardVO> getList() {
@@ -32,7 +32,7 @@ public class BoardServiceImpl implements BoardService {
 	public List<BoardVO> getList(Criteria cri){
 		log.info("서비스 getList(pvo) " + cri);
 		
-		return mapper.selectListPaging(cri);
+		return m.selectListPaging(cri);
 	}
 
 	@Override
@@ -40,8 +40,8 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		log.info("서비스 register(bvo) " + bvo);
 		
-		bvo.setBno(mapper.getNumber()); //채번
-		mapper.insertBoard(bvo);
+		bvo.setBno(m.getNumber()); //채번
+		m.insertBoard(bvo);
 		
 	}
 
@@ -50,7 +50,7 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		log.info("서비스 showDetail(bno) " + bno);
 		
-		return mapper.selectDetail(bno);
+		return m.selectDetail(bno);
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		log.info("서비스  editBoard(bvo) " +bvo);
 		
-		return mapper.updateBoard(bvo);
+		return m.updateBoard(bvo);
 	}
 
 	@Override
@@ -66,13 +66,13 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		log.info("서비스 removeBoard(bno) " + bno);
 		
-		return mapper.deleteBoard(bno);
+		return m.deleteBoard(bno);
 	}
 	
 	public int getTotal(Criteria cri) {
 		log.info("서비스 getTotal(cri) " + cri);
 		
-		return mapper.getTotalCount(cri);
+		return m.getTotalCount(cri);
 	}
 
 }

@@ -29,5 +29,13 @@
  		      ,rupdatedate = sysdate
  		where  rno = #{rno}
  	</update>
+ 	
+ 	<select id="getListPaging" resultType="com.my.domain.ReplyVO">
+ 		select rno, bno, rid, reply, replydate, rupdatedate
+ 		from   khy_reply
+ 		where  bno = #{bno}
+ 		and    rdeleteyn = 'Y'
+ 		order by rno asc
+ 	</select>
  </mapper>
  

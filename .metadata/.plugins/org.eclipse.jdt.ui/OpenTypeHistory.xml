@@ -2,4 +2,5 @@
 <typeInfoHistroy>
 <typeInfo handle="=board/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.my.mapper{BoardMapper.java[BoardMapper" modifiers="513" timestamp="1615299695388"/>
 <typeInfo handle="=board/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.my.service{BoardService.java[BoardService" modifiers="513" timestamp="1615300775427"/>
+<typeInfo handle="=board/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.my.service{ReplyService.java[ReplyService" modifiers="513" timestamp="1615465940389"/>
 </typeInfoHistroy>

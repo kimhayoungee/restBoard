@@ -1,0 +1,15 @@
+package com.my.service;
+
+public interface ReplyService {
+
+	public int register(ReplyVO rvo);
+	
+	public ReplyVO getReply(int rno);
+	
+	public int editReply(ReplyVO rvo);
+	
+	public int removeReply(int rno);
+	
+	public List<ReplyVO> getList(Criteria cri, String bno);
+	
+}

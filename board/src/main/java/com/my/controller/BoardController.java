@@ -18,21 +18,21 @@ import com.my.service.BoardService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
-//@Controller
+@Controller
 @RequestMapping("/board/*")
 @Log4j
 public class BoardController {
 
 		@Autowired
-		private BoardService service;
+		private BoardService s;
 		
 		@GetMapping("/list")
 		public String getList(Criteria cri, Model model) {
 			log.info("컨트롤러 getList");
 			
-			int total = service.getTotal(cri);
+			int total = s.getTotal(cri);
 			
-			model.addAttribute("boardList", service.getList(cri));
+			model.addAttribute("boardList", s.getList(cri));
 			model.addAttribute("pageMaker", new PageVO(total,cri));
 			return "board/list";
 		}
@@ -47,7 +47,7 @@ public class BoardController {
 		public String register(BoardVO bvo, RedirectAttributes ra) {
 			log.info("컨트롤러 register " + bvo);
 			
-			service.register(bvo);
+			s.register(bvo);
 			ra.addFlashAttribute("result", bvo.getBno());
 			
 			return "redirect:/board/list";
@@ -57,14 +57,14 @@ public class BoardController {
 		public void goDetail(@RequestParam("bno") String bno, @ModelAttribute("cri") Criteria cri, Model model) {
 			log.info("컨트롤러 showDetail 혹은 edit" + bno);
 			
-			model.addAttribute("bvo", service.showDetail(bno));
+			model.addAttribute("bvo", s.showDetail(bno));
 		}		
 		
 		@PostMapping("/edit")
 		public String editBoard(BoardVO bvo, @ModelAttribute("cri") Criteria cri, RedirectAttributes ra) {
 			log.info("컨트롤러 editBoard " + bvo);
 			
-			if(service.editBoard(bvo)==1) {
+			if(s.editBoard(bvo)==1) {
 				ra.addFlashAttribute("result", "성공");
 			}
 			
@@ -75,7 +75,7 @@ public class BoardController {
 		public String removeBoard(@RequestParam("bno") String bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes ra) {
 			log.info("컨트롤러 removeBoard " + bno);
 			
-			if(service.removeBoard(bno)==1) {
+			if(s.removeBoard(bno)==1) {
 				ra.addFlashAttribute("result", "성공");
 			}
 			

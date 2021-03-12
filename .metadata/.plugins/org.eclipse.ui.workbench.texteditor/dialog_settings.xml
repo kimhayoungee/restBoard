@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="service"/>
 			<item value="page-link"/>
 			<item value="page_link"/>
 			<item value="page_link:"/>
@@ -22,7 +23,6 @@
 			<item value="paginate_"/>
 			<item value="form"/>
 			<item value="actionForm"/>
-			<item value="center"/>
 		</list>
 		<list key="replacehistory">
 		</list>
