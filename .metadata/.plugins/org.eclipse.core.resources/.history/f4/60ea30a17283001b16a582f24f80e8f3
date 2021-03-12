@@ -127,7 +127,7 @@
 			replyService.edit(reply, function(result){
 				alert(result);
 				modal.modal("hide");
-				showList(pageNum);
+				showList(1);
 			})
 			
 		});
@@ -140,7 +140,7 @@
 				
 				alert(result);
 				modal.modal("hide");
-				showList(pageNum);
+				showList(1);
 				
 			});
 		});

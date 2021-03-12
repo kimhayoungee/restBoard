@@ -60,7 +60,6 @@
 				}
 				
 				replyUL.html(str);
-				showReplyPage(replyCnt);
 			})
 			
 		} //end of showList(page)
@@ -127,7 +126,7 @@
 			replyService.edit(reply, function(result){
 				alert(result);
 				modal.modal("hide");
-				showList(pageNum);
+				showList(1);
 			})
 			
 		});
@@ -140,7 +139,7 @@
 				
 				alert(result);
 				modal.modal("hide");
-				showList(pageNum);
+				showList(1);
 				
 			});
 		});
@@ -186,21 +185,6 @@
 			console.log(str);
 			replyPageFooter.html(str);
 		}
-		
-		//페이지 번호 클릭시
-		replyPageFooter.on("click", "li a", function(e){
-			e.preventDefault();
-			console.log("page click");
-			
-			var targetPageNum = $(this).attr("href");
-			
-			console.log("클릭한 페이지 번호 : " + targetPageNum);
-			
-			pageNum = targetPageNum;
-			
-			showList(pageNum);
-			
-		});
     }); //end of ready함수
     </script>
     

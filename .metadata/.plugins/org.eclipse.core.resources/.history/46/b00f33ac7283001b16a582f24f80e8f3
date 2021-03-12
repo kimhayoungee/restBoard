@@ -140,7 +140,7 @@
 				
 				alert(result);
 				modal.modal("hide");
-				showList(pageNum);
+				showList(1);
 				
 			});
 		});

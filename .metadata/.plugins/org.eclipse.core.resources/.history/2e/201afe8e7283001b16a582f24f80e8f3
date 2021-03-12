@@ -127,7 +127,7 @@
 			replyService.edit(reply, function(result){
 				alert(result);
 				modal.modal("hide");
-				showList(pageNum);
+				showList(1);
 			})
 			
 		});
@@ -140,7 +140,7 @@
 				
 				alert(result);
 				modal.modal("hide");
-				showList(pageNum);
+				showList(1);
 				
 			});
 		});
@@ -187,7 +187,6 @@
 			replyPageFooter.html(str);
 		}
 		
-		//페이지 번호 클릭시
 		replyPageFooter.on("click", "li a", function(e){
 			e.preventDefault();
 			console.log("page click");
