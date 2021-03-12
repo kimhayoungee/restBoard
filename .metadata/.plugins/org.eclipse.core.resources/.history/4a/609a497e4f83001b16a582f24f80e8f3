@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.my.mapper.ReplyMapper">
+ 
+ 	<insert id="insert">
+ 		insert into khy_reply(rno, bno, rid, reply, replydate, rupdatedate, rdeleteyn)
+ 		values(seq_reply.nextval, #{bno}, #{rid}, #{reply}, sysdate, sysdate, 'Y')
+ 	</insert>
+ 
+ 	<select id="select" resultType="com.my.domain.ReplyVO">
+ 		select *
+ 		from   khy_reply
+ 		where  rno = #{rno}
+ 		and    rdeleteyn = 'Y'
+ 	</select>
+ 	
+ 	<update id="update">
+ 		update khy_reply
+ 		set    reply = #{reply}
+ 		      ,rupdatedate = sysdate   
+ 	    where  rno = #{rno}
+ 	</update>
+ 	
+ 	<update id="delete">
+ 		update khy_reply
+ 		set    rdeleteyn = 'N'
+ 		      ,rupdatedate = sysdate
+ 		where  rno = #{rno}
+ 	</update>
+ 	
+ 	<select id="getListPaging" resultType="com.my.domain.ReplyVO">
+ 		select rno, bno, rid, reply, replydate, rupdatedate
+ 		from   khy_reply
+ 		where 
+ 		<if test="bno !=null">
+ 			   bno = #{bno}
+ 		</if>
+ 		<if test="rno !=null">
+ 			   rno = #{rno}
+ 		</if>	   
+ 		and    rdeleteyn = 'Y'
+ 		order by rno asc
+ 	</select>
+ </mapper>
+ 

@@ -46,18 +46,35 @@
 			for(var i=0, len=list.length||0; i<len; i++){
 				console.log(list[i]);
 			}
-		});*/
+		});
 		
-		replyService.remove(){
+		replyService.remove(11
+		,function(result){
 			console.log(result);
 			
 			if(result === "success"){
 				
-				alert("REMOVED");
-			}
-		}
+				alert("삭제 성공");
+			}			
+			
+		},function(err){
+			alert("에러" + err);
+		});
 		
-    });
+		replyService.edit({
+			 rno : 13
+			,bno : bnoVal
+			,reply : "수정수정"
+		}, function(result){
+			alert("수정 완료");
+			
+		});
+		
+		replyService.get(10, function(data){
+			console.log(data);
+		});*/
+		
+    }); //end of ready함수
     </script>
     
 </head>

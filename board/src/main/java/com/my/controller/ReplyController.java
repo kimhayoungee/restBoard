@@ -58,7 +58,7 @@ public class ReplyController {
 					     :new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@GetMapping(value="/remove/{rno}", produces= {MediaType.APPLICATION_XML_VALUE})
+	@GetMapping(value="/remove/{rno}", produces= {MediaType.TEXT_PLAIN_VALUE})
 	public ResponseEntity<String> remove(@PathVariable("rno") int rno){
 		log.info("컨트롤러 remove");
 		
@@ -67,5 +67,12 @@ public class ReplyController {
 		
 		return result==1? new ResponseEntity<>("success", HttpStatus.OK)
 				         :new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@GetMapping(value="{rno}", produces= {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
+	public ResponseEntity<ReplyVO> get(@PathVariable("rno") int rno){
+		log.info("컨트롤러 get");
+		
+		return new ResponseEntity<>(s.getReply(rno), HttpStatus.OK);
 	}
 } //end of ReplyController
