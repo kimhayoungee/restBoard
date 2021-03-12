@@ -4,23 +4,23 @@
 <mapper namespace="com.my.mapper.BoardMapper">
 
 	<sql id="criteria">
-		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
-			<foreach item='type' collection="typeArr">
-				<trim prefix="OR">
-					<choose>
-						<when test="type == 'T'.toString()">
-							btitle like '%'||#{keyword}||'%'
-						</when>
-						<when test="type == 'C'.toString()">
-							bcontent like '%'||#{keyword}||'%'
-						</when>
-						<when test="type == 'I'.toString()">
-							bid like '%'||#{keyword}||'%'
-						</when>
-					</choose>
-				</trim>
-			</foreach>			
-		</trim>		
+			<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+				<foreach item='type' collection="typeArr">
+					<trim prefix="OR">
+						<choose>
+							<when test="type == 'T'.toString()">
+								btitle like '%'||#{keyword}||'%'
+							</when>
+							<when test="type == 'C'.toString()">
+								bcontent like '%'||#{keyword}||'%'
+							</when>
+							<when test="type == 'I'.toString()">
+								bid like '%'||#{keyword}||'%'
+							</when>
+						</choose>
+					</trim>
+				</foreach>			
+			</trim>		
 	</sql>
 	
 	<select id="selectList" resultType="com.my.domain.BoardVO">
