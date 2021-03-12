@@ -29,10 +29,116 @@
 			
 		});
 		
-		console.log("=====")
-		console.log("JS TEST")
-		
+		//댓글
 		var bnoVal = '<c:out value="${bvo.bno}" />';
+		var replyUL = $(".chat");
+		
+		showList(1);
+		
+		function showList(pageNum){
+			replyService.getList({bno:bnoVal, pageNum:pageNum||1}, function(list){
+				var str="";
+				
+				if(list==null || list.length==0){
+					replyUL.html("");
+					
+					return;
+				}
+				
+				for(var i=0, len=list.length||0; i<len; i++){
+					str += "<li data-rno='" + list[i].rno + "'>";
+					str += "<div><div><strong class='primary-font'>" + list[i].rid +"</strong>";
+					str += "<small>&nbsp;&nbsp;&nbsp;" + replyService.displayTime(list[i].replydate) + "</small></div>";
+					str += "<p>" + list[i].reply + "</p></div></li>";
+				}
+				
+				replyUL.html(str);
+			})
+			
+		} //end of showList(page)
+		
+		//모달창
+		var modal = $(".modal");
+		var modalInputReply = modal.find("input[name='reply']");
+		var modalInputRid = modal.find("input[name='rid']");
+		var modalInputReplyDate = modal.find("input[name='replyDate']");
+		
+		var modalEditBtn = $("#modalEditBtn");
+		var modalRemoBtn = $("#modalRemoBtn");
+		var modalRegiBtn = $("#modalRegiBtn");
+		var modalCloseBtn = $("#modalCloseBtn");
+		
+		//댓글 제목 클릭시 상세조회
+		$(".chat").on("click", "li", function(e){
+			var rno = $(this).data("rno");
+			
+			replyService.get(rno, function(reply){
+				modalInputReply.val(reply.reply);
+				modalInputRid.val(reply.rid);
+				modalInputReplyDate.val(replyService.displayTime(reply.replydate)).attr("readonly", "readonly");
+				modal.data("rno", reply.rno);
+				
+				modal.find("button[id != 'modalCloseBtn']").hide();
+				modalEditBtn.show();
+				modalRemoBtn.show();
+				
+				modal.modal("show");
+				
+			});
+		});		
+		
+		//등록 모달창 켜는 버튼
+		$("#addReplyBtn").on("click", function(e){
+			modal.find("input").val("");
+			modal.find("button[id != 'modalCloseBtn']").hide();
+			modalInputReplyDate.closest("div").hide();
+			modalRegiBtn.show();
+			
+			modal.modal("show");
+			
+		});
+		
+		//모달창 내 등록버튼
+		modalRegiBtn.on("click", function(e){
+			var reply = {reply:modalInputReply.val(), rid:modalInputRid.val(), bno:bnoVal};
+			
+			replyService.add(reply, function(result){
+				alert(result);
+				
+				modal.find("input").val("");
+				modal.modal("hide");
+				
+				showList(1);
+			});
+		});
+		
+		//모달창 내 수정버튼
+		modalEditBtn.on("click", function(e){
+			var reply = {rno:modal.data("rno"), reply:modalInputReply.val()};
+			
+			replyService.edit(reply, function(result){
+				alert(result);
+				modal.modal("hide");
+				showList(1);
+			})
+			
+		});
+		
+		//모달창 내 삭제버튼
+		modalRemoBtn.on("click", function(e){
+			var rno = modal.data("rno");
+			
+			replyService.remove(rno, function(result){
+				
+				alert(result);
+				modal.modal("hide");
+				showList(1);
+				
+			});
+			
+		});
+
+		
 		
 /* 		replyService.add(
 			 {reply:"JS TEST", rid:"tester", bno:bnoVal}
@@ -280,7 +386,58 @@
                         </form>
                         </div>
                     </div>
-
+                    
+                    <!-- 댓글 -->
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<i class="fa fa-comments fa-fw"></i> Reply &nbsp;&nbsp;
+							<button id='addReplyBtn' class='btn btn-outline-primary'>댓글 작성</button>
+						</div>
+						
+						<div class="card-body">
+							<ul class="chat">
+			
+							</ul>
+						</div>
+						<!-- end of 댓글 card-body -->
+					</div>
+					<!-- end of 댓글 card -->
+					
+					<!-- 댓글 modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									<h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
+								</div>
+								
+								<div class="modal-body">
+									<div class="form-group">
+										<label>댓글 내용</label>
+										<input class="form-control" name='reply' value='New Reply!'>
+									</div>
+									<div class="form-group">
+										<label>작성자</label>
+										<input class="form-control" name='rid' value='rid'>
+									</div>
+									<div class="form-group">
+										<label>작성일</label>
+										<input class="form-control" name='replyDate' value=''>
+									</div>
+								</div>
+								
+								<div class="modal-footer">
+									<button id="modalEditBtn" type="button" class="btn btn-warning">수정</button>
+									<button id="modalRemoBtn" type="button" class="btn btn-danger">삭제</button>
+									<button id="modalRegiBtn" type="button" class="btn btn-primary">등록</button>
+									<button id="modalCloseBtn" type="button" class="btn btn-primary">닫기</button>
+								</div> 
+							</div>
+						</div>
+					</div>
+					<!-- end of 댓글 modal -->
+					
                 </div>
                 <!-- /.container-fluid -->
 
