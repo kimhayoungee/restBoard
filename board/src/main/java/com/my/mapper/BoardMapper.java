@@ -2,6 +2,7 @@ package com.my.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.context.annotation.Configuration;
 
@@ -26,4 +27,5 @@ public interface BoardMapper {
 	
 	public int getTotalCount(Criteria cri);
 	
+	public void updateReplyCnt(@Param("bno") String bno, @Param("amount") int amount);
 } //end of BoardMapper

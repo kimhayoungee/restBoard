@@ -303,7 +303,7 @@
                 							<td><c:out value="${board.bno}"></c:out></td>
                 							<td>
                 								<a class='move' href='<c:out value="${board.bno}"></c:out>'>
-                								<c:out value="${board.btitle}"></c:out>
+                								<c:out value="${board.btitle}"></c:out>    <b>[ <c:out value="${board.breplycnt}" /> ]</b>
                 								</a> 
                 							</td>
                 							<td><c:out value="${board.bcontent}"></c:out></td>

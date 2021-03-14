@@ -2,9 +2,13 @@ package com.my.domain;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class BoardVO {
 	
 	private String bno;
@@ -15,5 +19,5 @@ public class BoardVO {
 	private Date bregdate;
 	private Date bupdatedate;
 	private String bdeleteyn;
-	
+	private int breplycnt;
 }

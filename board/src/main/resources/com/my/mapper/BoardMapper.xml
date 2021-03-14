@@ -31,19 +31,22 @@
 
 	<select id="selectListPaging" resultType="com.my.domain.BoardVO">
 		<![CDATA[
-			select a.*
+			select a.bno, a.bid, a.btitle, a.bcontent
+			      ,a.bfile, a.bregdate, a.bupdatedate
+			      ,a.bdeleteyn, a.breplycnt, a.r
 			from  (select b.*
 			             ,rownum r
-			       from   khy_board b
-			       where 
+			       from  (select c.*
+			       	      from   khy_board c
+			       	      where
 		]]>	              
 		
 		<include refid="criteria"></include>
 			
 		<![CDATA[	              
-						  bdeleteyn ='Y'
-			       and    rownum <= #{pageNum} * #{amount}
-			       order  by bno *1 desc) a
+						    	 bdeleteyn ='Y'
+						  order  by bno *1 desc) b  	 
+				   where  rownum <= #{pageNum} * #{amount}) a
 			where  r > (#{pageNum}-1) * #{amount} 
 		]]>
 	</select>
@@ -92,4 +95,10 @@
 		
 			   bdeleteyn='Y'
 	</select>
+	
+	<update id="updateReplyCnt">
+		update khy_board 
+		set replycnt = replycnt + #{amount}
+		where bno = #{bno}
+	</update>
 </mapper>

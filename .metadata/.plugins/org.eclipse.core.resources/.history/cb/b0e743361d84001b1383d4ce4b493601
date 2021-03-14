@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.mapper.BoardMapper">
+
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'T'.toString()">
+							btitle like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'C'.toString()">
+							bcontent like '%'||#{keyword}||'%'
+						</when>
+						<when test="type == 'I'.toString()">
+							bid like '%'||#{keyword}||'%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>			
+		</trim>		
+	</sql>
+	
+	<select id="selectList" resultType="com.my.domain.BoardVO">
+		select * from khy_board
+		where bdeleteyn = 'Y'
+		order by bno desc
+	</select>
+
+	<select id="selectListPaging" resultType="com.my.domain.BoardVO">
+		<![CDATA[
+			select a.*
+			from  (select b.*
+			             ,rownum r
+			       from  (select c.*
+			       	      from khy_board c
+			       	      where
+		]]>	              
+		
+		<include refid="criteria"></include>
+			
+		<![CDATA[	              
+							  bdeleteyn ='Y'
+				       and    rownum <= #{pageNum} * #{amount}
+				       order  by bno *1 desc) a
+				where  r > (#{pageNum}-1) * #{amount} 
+		]]>
+	</select>
+
+	<select id="getNumber" resultType="string">
+		select nvl2(max(bno), 'B'||lpad(replace(max(bno),'B','') + 1, 5, '0'), 'B00001')
+		from   khy_board
+	</select>
+	
+	<insert id="insertBoard">
+		insert into khy_board (bno, bid, btitle, bcontent, bfile, bregdate, bupdatedate, bdeleteyn)
+		values (#{bno}, #{bid}, #{btitle}, #{bcontent}, #{bfile, jdbcType=VARCHAR}, sysdate, sysdate, 'Y')
+	</insert>
+
+	<select id="selectDetail" resultType="com.my.domain.BoardVO">
+		select * 
+		from   khy_board
+		where  bno = #{bno}
+		and    bdeleteyn = 'Y'
+	</select>
+	
+	<update id="updateBoard">
+		update khy_board
+		set	   btitle     = #{btitle}
+		      ,bcontent   = #{bcontent}
+		      ,bfile      = #{bfile, jdbcType=VARCHAR}
+		      ,bupdatedate= sysdate
+		where  bno = #{bno}
+		and    bdeleteyn = 'Y'
+	</update>
+	
+	<update id="deleteBoard">
+		update khy_board
+		set    bdeleteyn   = 'N'
+		      ,bupdatedate = sysdate
+		where  bno = #{bno}
+		and    bdeleteyn = 'Y'
+	</update>
+	
+	<select id="getTotalCount" resultType="int">
+		select count(*) 
+		from   khy_board 
+		where  
+		
+		<include refid="criteria"></include>
+		
+			   bdeleteyn='Y'
+	</select>
+	
+	<update id="updateReplyCnt">
+		update khy_board 
+		set replycnt = replycnt + #{amount}
+		where bno = #{bno}
+	</update>
+</mapper>

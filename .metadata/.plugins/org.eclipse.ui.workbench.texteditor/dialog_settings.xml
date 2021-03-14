@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="page-link"/>
+		<item key="selection" value="AspectJ"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="aspectj"/>
+			<item value="weaver"/>
+			<item value="aspectjwea"/>
+			<item value="spring-test"/>
+			<item value="org.projectlombospring-test"/>
+			<item value="org.projectlombok"/>
+			<item value="spring-jdbc"/>
+			<item value="bvo"/>
 			<item value="service"/>
 			<item value="page-link"/>
 			<item value="page_link"/>
@@ -15,21 +23,13 @@
 			<item value="page_link:hover"/>
 			<item value="page_link:active"/>
 			<item value="page_link.active"/>
-			<item value="page-link.active"/>
-			<item value="pagi"/>
-			<item value="search"/>
-			<item value="oper"/>
-			<item value="board.bno"/>
-			<item value="paginate_"/>
-			<item value="form"/>
-			<item value="actionForm"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="695"/>
-		<item key="DIALOG_Y_ORIGIN" value="379"/>
+		<item key="DIALOG_X_ORIGIN" value="809"/>
+		<item key="DIALOG_Y_ORIGIN" value="395"/>
 		<item key="DIALOG_WIDTH" value="340"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>

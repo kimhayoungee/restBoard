@@ -8,7 +8,6 @@ import lombok.Getter;
 
 @Data
 @AllArgsConstructor
-@Getter
 public class ReplyPageVO {
 
 	private int replyCnt;
