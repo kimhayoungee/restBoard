@@ -1,7 +1,5 @@
 package com.my.domain;
 
-import lombok.Data;
-
 @Data
 public class AttachVO {
 

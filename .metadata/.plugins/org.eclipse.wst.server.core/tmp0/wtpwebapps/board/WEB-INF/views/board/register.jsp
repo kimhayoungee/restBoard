@@ -104,7 +104,7 @@
         		,dataType: 'json'
         		,success: function(result){
         			console.log(result);
-        			//showUploadResult(result);
+        			showUploadResult(result);
         		}
         	});
         	
@@ -126,7 +126,7 @@
         		,type: 'POST'
         		,success: function(result){
         			alert(result);
-        			targetLi.remover();
+        			targetLi.remove();
         		}
         	});
         });

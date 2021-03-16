@@ -63,11 +63,8 @@ public class UploadController {
 		
 		List<AttachFileDTO> list = new ArrayList<>();
 		String uploadFolder = "D:\\upload";
-		String uploadFolderPath = getFolder();
-		
-		File uploadPath = new File(uploadFolder, uploadFolderPath);
+		File uploadPath = new File(uploadFolder, getFolder());
 		log.info("업로드 path : " + uploadPath);
-		
 		if(uploadPath.exists() ==false) {
 			log.info("jlkfjdjfa;sdfas야야야");
 			uploadPath.mkdirs();
@@ -84,7 +81,6 @@ public class UploadController {
 			//IE has file path
 			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\") + 1);
 			log.info("파일이름만 확인 : " + uploadFileName);
-			adto.setFileName(uploadFileName);
 			
 			UUID uuid = UUID.randomUUID();
 			uploadFileName = uuid.toString() + "_" + uploadFileName;
@@ -92,12 +88,8 @@ public class UploadController {
 			try {
 				File saveFile = new File(uploadFolder, uploadFileName);
 				mf.transferTo(saveFile);
-				adto.setUuid(uuid.toString());
-				adto.setUploadPath(uploadFolderPath);
 				
 				if(chkImgType(saveFile)) {
-					adto.setImage(true);
-					
 					FileOutputStream thumbnail = new FileOutputStream(new File(uploadPath, "s_" + uploadFileName));
 					
 					Thumbnailator.createThumbnail(mf.getInputStream(), thumbnail, 100, 100);

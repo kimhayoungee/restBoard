@@ -84,7 +84,6 @@ public class UploadController {
 			//IE has file path
 			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\") + 1);
 			log.info("파일이름만 확인 : " + uploadFileName);
-			adto.setFileName(uploadFileName);
 			
 			UUID uuid = UUID.randomUUID();
 			uploadFileName = uuid.toString() + "_" + uploadFileName;

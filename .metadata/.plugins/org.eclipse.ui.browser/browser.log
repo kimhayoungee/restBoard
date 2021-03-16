@@ -9,3 +9,7 @@
 3월 14, 2021 23:11:36.663 NEW SESSION
 3월 14, 2021 23:11:36.663 [5872:10312:0314/231136.659:ERROR:device_event_log_impl.cc(214)] [23:11:36.660] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 3월 14, 2021 23:11:36.667 [5872:10312:0314/231136.666:ERROR:device_event_log_impl.cc(214)] [23:11:36.667] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+
+3월 17, 2021 02:29:42.713 NEW SESSION
+3월 17, 2021 02:29:42.713 [7596:15068:0317/022942.706:ERROR:device_event_log_impl.cc(214)] [02:29:42.706] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 17, 2021 02:54:41.617 [7596:15068:0317/025441.617:ERROR:CONSOLE(1660)] "Uncaught TypeError: Cannot read property 'restoreCallback' of null", source: chrome://new-tab-page/new_tab_page.js (1660)
