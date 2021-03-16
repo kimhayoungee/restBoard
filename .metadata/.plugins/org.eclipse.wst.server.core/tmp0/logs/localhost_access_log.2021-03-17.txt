@@ -105,3 +105,9 @@
 0:0:0:0:0:0:0:1 - - [17/Mar/2021:01:21:19 +0900] "GET /resources/vendor/bootstrap/js/bootstrap.bundle.min.js.map HTTP/1.1" 200 315680
 0:0:0:0:0:0:0:1 - - [17/Mar/2021:01:21:21 +0900] "GET /board/register HTTP/1.1" 200 19699
 0:0:0:0:0:0:0:1 - - [17/Mar/2021:01:21:21 +0900] "GET /resources/vendor/bootstrap/js/bootstrap.bundle.min.js.map HTTP/1.1" 200 315680
+127.0.0.1 - - [17/Mar/2021:01:33:08 +0900] "GET / HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [17/Mar/2021:01:33:09 +0900] "GET /WEB-INF/classes/com/my/controller/UploadController.java HTTP/1.1" 404 721
+0:0:0:0:0:0:0:1 - - [17/Mar/2021:01:33:15 +0900] "GET /board/list HTTP/1.1" 200 23533
+0:0:0:0:0:0:0:1 - - [17/Mar/2021:01:33:18 +0900] "GET /board/register HTTP/1.1" 200 19695
+0:0:0:0:0:0:0:1 - - [17/Mar/2021:01:33:22 +0900] "GET /resources/vendor/bootstrap/js/bootstrap.bundle.min.js.map HTTP/1.1" 200 315680
+0:0:0:0:0:0:0:1 - - [17/Mar/2021:01:33:25 +0900] "POST /uploadAjaxAction HTTP/1.1" 404 721
