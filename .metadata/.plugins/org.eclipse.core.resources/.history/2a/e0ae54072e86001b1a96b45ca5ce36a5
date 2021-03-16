@@ -1,0 +1,10 @@
+package com.my.domain;
+
+public class AttachVO {
+
+	private String fileName;
+	private String uploadPath;
+	private String uuid;
+	private boolean img;
+	
+} //end of FileVO

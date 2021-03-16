@@ -47,8 +47,14 @@ public class BoardController {
 		public String register(BoardVO bvo, RedirectAttributes ra) {
 			log.info("컨트롤러 register " + bvo);
 			
-			s.register(bvo);
-			ra.addFlashAttribute("result", bvo.getBno());
+			if(bvo.getAttachList() !=null) {
+				bvo.getAttachList().forEach(attach -> log.info(attach));
+			}
+			
+			log.info("======================");
+			
+			//s.register(bvo);
+			//ra.addFlashAttribute("result", bvo.getBno());
 			
 			return "redirect:/board/list";
 		}

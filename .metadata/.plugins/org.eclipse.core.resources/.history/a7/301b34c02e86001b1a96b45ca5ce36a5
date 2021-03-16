@@ -1,0 +1,11 @@
+package com.my.mapper;
+
+public class BoardAttachMapper {
+
+	public void insert(AttachVO avo);
+	
+	public void delete(Stringi uuid);
+	
+	public List<AttachVO> findByBno(String bno);
+	
+} //end of BoardAttachMapper

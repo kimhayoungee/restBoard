@@ -11,6 +11,7 @@
     
     <script>
     $(document).ready(function(){
+    	//서머노트
     	var toolbar = [
 		    // 글꼴 설정
 		    ['fontname', ['fontname']],
@@ -39,8 +40,138 @@
         };
 
         $('.summernote').summernote(setting);
-       
-    });
+        
+        //첨부파일
+        //등록 클릭시 기본동작 막기
+        var formObj = $("form[role='form']");
+        
+        $("button[type='submit']").on("click", function(e){
+        	
+        	e.preventDefault();
+        	
+        	console.log("submit 클릭");
+        	
+        	var str = "";
+        	
+        	$(".uploadResult ul li").each(function(i, obj){
+        		var jobj = $(obj);
+        		console.dir("확인 : " + jobj);
+        		
+        		str += "<input type='hidden' name='attachList["+i+"].fileName' value='"+ jobj.data("filename") + "'>";
+        		str += "<input type='hidden' name='attachList["+i+"].uuid' value='" + jobj.data("uuid") + "'>";
+        		str += "<input type='hidden' name='attachList["+i+"].uploadPath' value='" + jobj.data("path") + "'>";
+        		str += "<input type='hidden' name='attachList["+i+"].fileType' value='" + jobj.data("type") + "'>";
+        		
+        		formObj.append(str).submit();
+        	})
+        });
+        
+        //
+        var regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
+        var maxSize = 5242880 //5MB
+        
+        function chkExtension(fileName, fileSize){
+        	if(fileSize >=maxSize){
+        		alert("파일 크기 초과");
+        		return false;
+        	}
+        	
+        	if(regex.test(fileName)){
+        		alert("해당 종류의 파일은 업로드할 수 없습니다");
+        		return false;
+        	}
+        	return true;
+        }
+        
+        $("input[type='file']").change(function(e){
+        	var formData = new FormData();
+        	var inputFile = $("input[name='uploadFile']");
+        	var files = inputFile[0].files;
+        	
+        	for(var i=0;i<files.length;i++){
+        		if(!chkExtension(files[i].name, files[i].size)){
+        			return false;
+        		}
+        		formData.append("uploadFile", files[i]);
+        	}
+        	
+        	$.ajax({
+        		 url: '/uploadAjaxAction'
+        		,processData: false
+        		,contentType: false
+        		,data: formData
+        		,type: 'POST'
+        		,dataType: 'json'
+        		,success: function(result){
+        			console.log(result);
+        			//showUploadResult(result);
+        		}
+        	});
+        	
+        });
+        
+        //첨부파일 변경
+        $(".uploadResult").on("click", "button", function(e){
+        	console.log("파일 삭제");
+        	
+        	var targetFile = $(this).data("file");
+        	var type = $(this).data("type");
+        	
+        	var targetLi = $(this).closest("li");
+        	
+        	$.ajax({
+        		 url: '/deleteFile'
+        		,data: {fileName: targetFile, type: type}
+        		,dataType: 'text'
+        		,type: 'POST'
+        		,success: function(result){
+        			alert(result);
+        			targetLi.remover();
+        		}
+        	});
+        });
+        
+    }); //end of ready
+    
+    
+    function showUploadResult(uploadResultArr){
+    	if(!uploadResultArr || uploadResultArr.length==0){ return; }
+    	
+    	var uploadUL = $(".uploadResult ul");
+    	var str = "";
+    	
+    	$(uploadResultArr).each(function(i, obj){
+    		//image type
+    		if(obj.image){
+    			var fileCallPath = encodeURIComponent(obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName);
+    			str += "<li data-path='" + obj.uploadPath +"'";
+    			str += " data-uuid='" + obj.uuid + "' data-filename='" + obj.fileName + "' data-type='" + obj.image + "'";
+    			str += "><div>";
+    			str += "<span> " + obj.fileName + "</span>";
+    			str += "<button type='button' data-file=\'" + fileCallPath + "\' "
+    			str += "data-type='image' class='btn btn-warning btn-circle'><i class='far fa-times-circle'></i></button><br>";
+    			str += "<img src='/display?fileName=" + fileCallPath + "'>";
+    			str += "</div>";
+    			str += "</li>";
+    		}else{
+    			var fileCallPath = encodeURIComponent(obj.uploadPath + "/" + obj.uuid + "_" + obj.fileName);
+    			var fileLink = fileCallPath.replace(new RegExp(/\\/g), "/");
+    			
+    			str += "<li data-path='" + obj.uploadPath + "'"; 
+    			str += " data-uuid='" + obj.uuid + "' data-filename='" + obj.fileName + "' data-type='" + obj.image + "'";
+    			str += "><div>";
+    			str += "<span> " + obj.fileName + "</span>";
+    			str += "<button type='button' data-file=\'" + fileCallPath + "\' "
+    			str += "data-type='file' class='btn btn-warning btn-circle'><i class='far fa-times-circle'></i></button><br>";
+    			str += "<img src='/resources/img/attach.png'></a>";
+    			str += "</div>";
+    			str += "</li>";
+    		}
+    	});
+    	
+    	uploadUL.append(str);
+    }
+
     </script>
 
 	<title>게시글 작성</title>
@@ -220,7 +351,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-		       
+		       				<h6 class="m-0 font-weight-bold text-primary">게시글 작성</h6>
                         </div>
                         <div class="card-body">
                         <form action="/board/register" method="post">
@@ -232,10 +363,25 @@
                         		<label>내용</label> <textarea class="summernote" name='bcontent'></textarea>
                         	</div>
                         	
-                        	<div>첨부파일</div>
                         	<button type="submit" class="btn btn-primary">등록</button>
                         	<button type="reset" class="btn btn-primary">취소</button>
                         </form>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-4">    
+                        <div class="card-header py-3">
+		       				<h6 class="m-0 font-weight-bold text-primary">첨부 파일</h6>
+                        </div>
+                        <div class="card-body">
+                        	<div class="form-group uploadDiv">
+                        		<input type="file" name='uploadFile' multiple>
+                        	</div> 	
+                        	
+                        	<div class='uploadResult'>
+                        		<ul>
+                        		
+                        		</ul>
+                        	</div>
                         </div>
                     </div>
 
