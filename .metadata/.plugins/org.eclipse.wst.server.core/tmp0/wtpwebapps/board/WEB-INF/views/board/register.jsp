@@ -43,7 +43,8 @@
         
         //첨부파일
         //등록 클릭시 기본동작 막기
-        var formObj = $("form[role='form']");
+       /*  var formObj = $("form[role='form']"); */
+       var formObj = $('#regForm');
         
         $("button[type='submit']").on("click", function(e){
         	
@@ -55,13 +56,14 @@
         	
         	$(".uploadResult ul li").each(function(i, obj){
         		var jobj = $(obj);
-        		console.dir("확인 : " + jobj);
+        		console.log("확인 : " + jobj);
         		
         		str += "<input type='hidden' name='attachList["+i+"].fileName' value='"+ jobj.data("filename") + "'>";
         		str += "<input type='hidden' name='attachList["+i+"].uuid' value='" + jobj.data("uuid") + "'>";
         		str += "<input type='hidden' name='attachList["+i+"].uploadPath' value='" + jobj.data("path") + "'>";
         		str += "<input type='hidden' name='attachList["+i+"].fileType' value='" + jobj.data("type") + "'>";
         		
+        		console.log("dd : " + str);
         		formObj.append(str).submit();
         	})
         });
@@ -354,7 +356,7 @@
 		       				<h6 class="m-0 font-weight-bold text-primary">게시글 작성</h6>
                         </div>
                         <div class="card-body">
-                        <form action="/board/register" method="post">
+                        	<form action="/board/register" method="post" id="regForm">
                         	<div class="form-group">
                         		<label>제목</label> <input class="form-control" name='btitle'>
                         	</div>
@@ -365,7 +367,8 @@
                         	
                         	<button type="submit" class="btn btn-primary">등록</button>
                         	<button type="reset" class="btn btn-primary">취소</button>
-                        </form>
+                        	</form>
+                        
                         </div>
                     </div>
                     <div class="card shadow mb-4">    
@@ -382,9 +385,10 @@
                         		
                         		</ul>
                         	</div>
+                        	
                         </div>
                     </div>
-
+                    
                 </div>
                 <!-- /.container-fluid -->
 

@@ -44,7 +44,7 @@
         //첨부파일
         //등록 클릭시 기본동작 막기
        /*  var formObj = $("form[role='form']"); */
-       var formObj = $('#regForm');
+       var formObj = $('#regForm')
         
         $("button[type='submit']").on("click", function(e){
         	

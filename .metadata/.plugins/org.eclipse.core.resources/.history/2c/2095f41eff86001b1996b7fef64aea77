@@ -6,7 +6,6 @@ import lombok.Data;
 public class AttachVO {
 
 	//db에 들어갈 파일을 위한 vo 
-	
 	private String uuid;
 	private String uploadPath;
 	private String fileName;
