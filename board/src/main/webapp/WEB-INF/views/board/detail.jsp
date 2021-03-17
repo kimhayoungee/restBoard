@@ -292,6 +292,34 @@
 			
 			setTimeout(function(){$('.bigPictureWrapper').hide();}, 1000);
 		});
+		
+		//첨부파일 추가
+        $("input[type='file']").change(function(e){
+        	var formData = new FormData();
+        	var inputFile = $("input[name='uploadFile']");
+        	var files = inputFile[0].files;
+        	
+        	for(var i=0;i<files.length;i++){
+        		if(!chkExtension(files[i].name, files[i].size)){
+        			return false;
+        		}
+        		formData.append("uploadFile", files[i]);
+        	}
+        	
+        	$.ajax({
+        		 url: '/uploadAjaxAction'
+        		,processData: false
+        		,contentType: false
+        		,data: formData
+        		,type: 'POST'
+        		,dataType: 'json'
+        		,success: function(result){
+        			console.log(result);
+        			showUploadResult(result);
+        		}
+        	});
+        	
+        });		
     }); //end of ready함수
     
     function showImage(fileCallPath){

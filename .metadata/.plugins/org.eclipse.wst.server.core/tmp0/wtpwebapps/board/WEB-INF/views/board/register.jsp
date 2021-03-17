@@ -57,15 +57,15 @@
         	$(".uploadResult ul li").each(function(i, obj){
         		var jobj = $(obj);
         		
-        		
+        		console.dir(jobj);
         		str += "<input type='hidden' name='attachList["+i+"].fileName' value='"+ jobj.data("filename") + "'>";
         		str += "<input type='hidden' name='attachList["+i+"].uuid' value='" + jobj.data("uuid") + "'>";
         		str += "<input type='hidden' name='attachList["+i+"].uploadPath' value='" + jobj.data("path") + "'>";
         		str += "<input type='hidden' name='attachList["+i+"].fileType' value='" + jobj.data("type") + "'>";
         		
-        		console.log("dd : " + str);
-        		formObj.append(str).submit();
-        	})
+        	});
+        	formObj.append(str).submit();
+        	
         });
         
         //
@@ -85,6 +85,7 @@
         	return true;
         }
         
+        //첨부파일 추가
         $("input[type='file']").change(function(e){
         	var formData = new FormData();
         	var inputFile = $("input[name='uploadFile']");

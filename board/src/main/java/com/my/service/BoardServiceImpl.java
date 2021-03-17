@@ -60,12 +60,25 @@ public class BoardServiceImpl implements BoardService {
 		return m.selectDetail(bno);
 	}
 
+	@Transactional
 	@Override
 	public int editBoard(BoardVO bvo) {
 		// TODO Auto-generated method stub
 		log.info("서비스  editBoard(bvo) " +bvo);
 		
-		return m.updateBoard(bvo);
+		am.deleteAll(bvo.getBno());
+		
+		int editResult = m.updateBoard(bvo);
+		
+		if(editResult==1 && bvo.getAttachList() !=null && bvo.getAttachList().size() >0) {
+			bvo.getAttachList().forEach(attach -> {
+				
+				attach.setBno(bvo.getBno());
+				am.insert(attach);
+			});
+		}
+		
+		return editResult;
 	}
 
 	@Transactional
