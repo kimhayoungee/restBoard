@@ -56,7 +56,7 @@
         	
         	$(".uploadResult ul li").each(function(i, obj){
         		var jobj = $(obj);
-        		console.log("확인 : " + jobj);
+        		
         		
         		str += "<input type='hidden' name='attachList["+i+"].fileName' value='"+ jobj.data("filename") + "'>";
         		str += "<input type='hidden' name='attachList["+i+"].uuid' value='" + jobj.data("uuid") + "'>";

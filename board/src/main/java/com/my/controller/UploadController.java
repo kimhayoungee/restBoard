@@ -63,13 +63,14 @@ public class UploadController {
 		
 		List<AttachFileDTO> list = new ArrayList<>();
 		String uploadFolder = "D:\\upload";
+		//날짜별 폴더
 		String uploadFolderPath = getFolder();
 		
+		//풀 경로
 		File uploadPath = new File(uploadFolder, uploadFolderPath);
 		log.info("업로드 path : " + uploadPath);
 		
 		if(uploadPath.exists() ==false) {
-			log.info("jlkfjdjfa;sdfas야야야");
 			uploadPath.mkdirs();
 		}
 		
@@ -84,13 +85,14 @@ public class UploadController {
 			//IE has file path
 			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\") + 1);
 			log.info("파일이름만 확인 : " + uploadFileName);
+			
 			adto.setFileName(uploadFileName);
 			
 			UUID uuid = UUID.randomUUID();
 			uploadFileName = uuid.toString() + "_" + uploadFileName;
 			
 			try {
-				File saveFile = new File(uploadFolder, uploadFileName);
+				File saveFile = new File(uploadPath, uploadFileName);
 				mf.transferTo(saveFile);
 				adto.setUuid(uuid.toString());
 				adto.setUploadPath(uploadFolderPath);

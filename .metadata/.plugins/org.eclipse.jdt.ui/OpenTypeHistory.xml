@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
 <typeInfo handle="=board/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.my.mapper{BoardMapper.java[BoardMapper" modifiers="513" timestamp="1615652357217"/>
-<typeInfo handle="=board/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.my.service{BoardService.java[BoardService" modifiers="513" timestamp="1615300775427"/>
+<typeInfo handle="=board/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.my.service{BoardService.java[BoardService" modifiers="513" timestamp="1615982261251"/>
 <typeInfo handle="=board/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.my.service{ReplyService.java[ReplyService" modifiers="513" timestamp="1615578250903"/>
 </typeInfoHistroy>

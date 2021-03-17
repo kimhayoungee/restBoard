@@ -22,5 +22,5 @@ public class BoardVO {
 	private String bdeleteyn;
 	private int breplycnt;
 	
-	private List<AttachVO> attachList;
+	private List<BoardAttachVO> attachList;
 }

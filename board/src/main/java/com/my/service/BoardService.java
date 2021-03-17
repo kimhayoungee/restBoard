@@ -2,6 +2,7 @@ package com.my.service;
 
 import java.util.List;
 
+import com.my.domain.BoardAttachVO;
 import com.my.domain.BoardVO;
 import com.my.domain.Criteria;
 
@@ -20,4 +21,7 @@ public interface BoardService {
 	public int removeBoard(String bno);
 	
 	public int getTotal(Criteria cri);
-}
+	
+	public List<BoardAttachVO> getAttachList(String bno);
+	
+} //end of BoardService

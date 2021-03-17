@@ -15,7 +15,7 @@
 		delete from khy_attach where uuid = #{uuid}
 	</delete>
 	
-	<select id="findByBno" resultType="com.my.domain.AttachVO">
+	<select id="findByBno" resultType="com.my.domain.BoardAttachVO">
 		select * from khy_attach where bno = #{bno}
 	</select>
 	

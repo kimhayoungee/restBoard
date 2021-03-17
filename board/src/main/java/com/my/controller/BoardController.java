@@ -1,6 +1,11 @@
 package com.my.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,8 +13,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.my.domain.BoardAttachVO;
 import com.my.domain.BoardVO;
 import com.my.domain.Criteria;
 import com.my.domain.PageVO;
@@ -53,8 +60,8 @@ public class BoardController {
 			
 			log.info("======================");
 			
-			//s.register(bvo);
-			//ra.addFlashAttribute("result", bvo.getBno());
+			s.register(bvo);
+			ra.addFlashAttribute("result", bvo.getBno());
 			
 			return "redirect:/board/list";
 		}
@@ -86,6 +93,14 @@ public class BoardController {
 			}
 			
 			return "redirect:/board/list" + cri.getListLink();
+		}
+		
+		@GetMapping(value="/getAttachList", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+		@ResponseBody
+		public ResponseEntity<List<BoardAttachVO>> getAttachList(String bno){
+			log.info("컨트롤러 getAttachList " + bno);
+			
+			return new ResponseEntity<>(s.getAttachList(bno), HttpStatus.OK);
 		}
 		
 

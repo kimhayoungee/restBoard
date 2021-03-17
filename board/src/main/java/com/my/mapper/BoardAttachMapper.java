@@ -2,14 +2,14 @@ package com.my.mapper;
 
 import java.util.List;
 
-import com.my.domain.AttachVO;
+import com.my.domain.BoardAttachVO;
 
 public interface BoardAttachMapper {
 
-	public void insert(AttachVO avo);
+	public void insert(BoardAttachVO avo);
 	
 	public void delete(String uuid);
 	
-	public List<AttachVO> findByBno(String bno);
+	public List<BoardAttachVO> findByBno(String bno);
 	
 } //end of BoardAttachMapper

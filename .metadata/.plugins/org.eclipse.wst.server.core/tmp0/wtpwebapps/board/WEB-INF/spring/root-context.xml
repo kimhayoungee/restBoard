@@ -35,11 +35,17 @@
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>	
 	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<tx:annotation-driven/>
+	
 	<mybatis-spring:scan base-package="com.my.mapper"></mybatis-spring:scan>
 	
 	<context:component-scan base-package="com.my.service"></context:component-scan>
 	
-	<tx:annotation-driven/>
+	
 	
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>
