@@ -1,0 +1,9 @@
+package com.my.task;
+
+@Component
+@Log4j
+public class FileChkTask {
+
+	
+	
+} //end of FileChkTask

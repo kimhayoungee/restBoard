@@ -22,4 +22,10 @@
 	<delete id="deleteAll">
 		delete from khy_attach where bno = #{bno}
 	</delete>
+	
+	<select id="getOldFiles" resultType="com.my.domain.BoardAttachVO">
+		select * 
+		from   khy_attach 
+		where  uploadpath = to_char(sysdate -1, 'yyyy\mm\dd')
+	</select>
 </mapper>

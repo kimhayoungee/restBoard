@@ -14,4 +14,6 @@ public interface BoardAttachMapper {
 	
 	public void deleteAll(String bno);
 	
+	public List<BoardAttachVO> getOldFiles();
+	
 } //end of BoardAttachMapper
