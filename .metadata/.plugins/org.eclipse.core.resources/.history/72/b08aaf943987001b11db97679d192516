@@ -68,13 +68,10 @@ public class BoardServiceImpl implements BoardService {
 		return m.updateBoard(bvo);
 	}
 
-	@Transactional
 	@Override
 	public int removeBoard(String bno) {
 		// TODO Auto-generated method stub
 		log.info("서비스 removeBoard(bno) " + bno);
-		
-		am.deleteAll(bno);
 		
 		return m.deleteBoard(bno);
 	}

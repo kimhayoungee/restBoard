@@ -19,7 +19,4 @@
 		select * from khy_attach where bno = #{bno}
 	</select>
 	
-	<delete id="deleteAll">
-		delete from khy_attach where bno = #{bno}
-	</delete>
 </mapper>

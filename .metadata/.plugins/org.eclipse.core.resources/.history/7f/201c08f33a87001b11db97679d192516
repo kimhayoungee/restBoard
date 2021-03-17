@@ -89,11 +89,7 @@ public class BoardController {
 		public String removeBoard(@RequestParam("bno") String bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes ra) {
 			log.info("컨트롤러 removeBoard " + bno);
 			
-			List<BoardAttachVO> atList = s.getAttachList(bno);
-			
 			if(s.removeBoard(bno)==1) {
-				deleteFiles(atList);
-				
 				ra.addFlashAttribute("result", "성공");
 			}
 			
@@ -108,7 +104,7 @@ public class BoardController {
 			return new ResponseEntity<>(s.getAttachList(bno), HttpStatus.OK);
 		}
 		
-		private void deleteFiles(List<BoardAttachVO> atList) {
+		private void deleteFile(List<BoardAttachVO> atList) {
 			if(atList ==null || atList.size() ==0) return;
 			log.info("컨트롤러 deleteFile " + atList);
 			
@@ -124,7 +120,7 @@ public class BoardController {
 						Files.delete(thumbNail);
 					}
 				}catch(Exception e) {
-					log.error("파일삭제 에러: " + e.getMessage());
+					
 				}
 				
 			}); //end of forEach
