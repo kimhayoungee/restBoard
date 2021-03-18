@@ -7929,3 +7929,12 @@ java.lang.IllegalMonitorStateException
 
 !ENTRY org.eclipse.ui 2 2 2021-03-19 01:07:30.814
 !MESSAGE Invalid property category path: org.springframework.ide.eclipse.ui.projectPropertyPage (bundle: org.springframework.ide.eclipse.roo.ui, propertyPage: com.springsource.roo.ui.projectPropertyPage)
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-03-19 01:10:27.114
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-03-19 01:10:27.115
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-03-19 01:10:27.116
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
