@@ -24,7 +24,9 @@
 	<security:authentication-manager>
 		<security:authentication-provider>
 		
-			<security:jdbc-user-service data-source-ref="dataSource"/>
+			<security:jdbc-user-service data-source-ref="dataSource" users-by-username-query="select mid username, mpw password, enabled from khy_member where mid = ?"
+			authorities-by-username-query="select mid, auth authority from khy_member_auth where mid = ?"/>
+			
 			<security:password-encoder ref="bcryptPwEncoder"/>
 			
 		</security:authentication-provider>
