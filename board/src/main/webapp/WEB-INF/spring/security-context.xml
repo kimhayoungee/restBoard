@@ -7,24 +7,26 @@
 
 	<bean id="customAccessDenied" class="com.my.security.CustomAccessDeniedHandler"></bean>
 	<bean id="customLoginSuccess" class="com.my.security.CustomLoginSuccessHandler"></bean>
+<!-- 	<bean id="customPwEncoder" class="com.my.security.CustomNoOpPwEncoder"></bean> -->
+	<bean id="bcryptPwEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
 	
 	<security:http auto-config="true" use-expressions="true">
 		<security:intercept-url pattern="/sample/all" access="permitAll"/>
-		<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')"/>
+		<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MANAGER')"/>
 		<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')"/>
 		
 		<security:access-denied-handler ref="customAccessDenied"/>
 		<security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccess"/>
 		<security:logout logout-url="/customLogout" invalidate-session="true"/>
-		<!-- <security:csrf disabled="true"/> -->
+		
 	</security:http>
 	
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="member" password="{noop}member" authorities="ROLE_MEMBER"/>
-				<security:user name="admin" password="{noop}admin" authorities="ROLE_MEMBER, ROLE_ADMIN"/>
-			</security:user-service>
+		
+			<security:jdbc-user-service data-source-ref="dataSource"/>
+			<security:password-encoder ref="bcryptPwEncoder"/>
+			
 		</security:authentication-provider>
 	</security:authentication-manager>
 	
