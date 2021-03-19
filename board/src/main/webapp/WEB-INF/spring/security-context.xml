@@ -7,26 +7,28 @@
 
 	<bean id="customAccessDenied" class="com.my.security.CustomAccessDeniedHandler"></bean>
 	<bean id="customLoginSuccess" class="com.my.security.CustomLoginSuccessHandler"></bean>
-<!-- 	<bean id="customPwEncoder" class="com.my.security.CustomNoOpPwEncoder"></bean> -->
 	<bean id="bcryptPwEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
+	<bean id="customUserDetailsService" class="com.my.security.CustomUserDetailsService"></bean>
+	
 	
 	<security:http auto-config="true" use-expressions="true">
 		<security:intercept-url pattern="/sample/all" access="permitAll"/>
-		<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MANAGER')"/>
+		<security:intercept-url pattern="/sample/member" access="hasRole('ROLE_MEMBER')"/>
 		<security:intercept-url pattern="/sample/admin" access="hasRole('ROLE_ADMIN')"/>
 		
 		<security:access-denied-handler ref="customAccessDenied"/>
+		
 		<security:form-login login-page="/customLogin" authentication-success-handler-ref="customLoginSuccess"/>
-		<security:logout logout-url="/customLogout" invalidate-session="true"/>
+		
+		<security:logout logout-url="/customLogout" invalidate-session="true" delete-cookies="remember-me, JSESSION_ID"/>
+		
+		<security:remember-me data-source-ref="dataSource" token-validity-seconds="604800" />
 		
 	</security:http>
 	
 	<security:authentication-manager>
-		<security:authentication-provider>
+		<security:authentication-provider user-service-ref="customUserDetailsService">
 		
-			<security:jdbc-user-service data-source-ref="dataSource" users-by-username-query="select mid username, mpw password, enabled from khy_member where mid = ?"
-			authorities-by-username-query="select mid, auth authority from khy_member_auth where mid = ?"/>
-			
 			<security:password-encoder ref="bcryptPwEncoder"/>
 			
 		</security:authentication-provider>
