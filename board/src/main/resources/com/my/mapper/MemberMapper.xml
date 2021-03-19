@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.mapper.MemberMapper">
+	
+	<resultMap type="com.my.domain.MemberVO" id="mMap">
+		<id property="mid" column="mid"/>
+		<result property="mpw" column="mpw" />
+		<result property="mname" column="mname" />
+		<result property="maddress" column="maddress" />
+		<result property="mbirth" column="mbirth" />
+		<result property="msignupdate" column="msignupdate" />
+		<result property="mupdatedate" column="mupdatedate" />
+		<collection property="authList" resultMap="aMap" ></collection>
+	</resultMap>
+	
+	<resultMap type="com.my.domain.AuthVO" id="aMap">
+		<result property="mid" column="mid" />
+		<result property="auth" column="auth" />
+	</resultMap>
+	
+	<select id="read" resultMap="mMap">
+		select m.*, a.auth
+		from   khy_member m
+		left join khy_member_auth a
+		on   m.mid = a.mid
+		where m.mid = #{mid}
+	</select>
+</mapper>

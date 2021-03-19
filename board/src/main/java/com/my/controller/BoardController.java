@@ -22,7 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.my.domain.BoardAttachVO;
 import com.my.domain.BoardVO;
 import com.my.domain.Criteria;
-import com.my.domain.PageVO;
+import com.my.domain.BoardPageVO;
 import com.my.service.BoardService;
 
 import lombok.AllArgsConstructor;
@@ -43,7 +43,7 @@ public class BoardController {
 			int total = s.getTotal(cri);
 			
 			model.addAttribute("boardList", s.getList(cri));
-			model.addAttribute("pageMaker", new PageVO(total,cri));
+			model.addAttribute("pageMaker", new BoardPageVO(total,cri));
 			return "board/list";
 		}
 		

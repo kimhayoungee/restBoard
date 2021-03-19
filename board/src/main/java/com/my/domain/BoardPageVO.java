@@ -5,7 +5,7 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class PageVO {
+public class BoardPageVO {
 
 	private int startPage;
 	private int endPage;
@@ -14,7 +14,7 @@ public class PageVO {
 	private int total;
 	private Criteria cri;
 	
-	public PageVO(int total, Criteria cri) {
+	public BoardPageVO(int total, Criteria cri) {
 		super();
 		this.total = total;
 		this.cri = cri;
