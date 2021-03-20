@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>     
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -191,6 +192,9 @@
         	return true;
         }
         
+        var csrfHeaderName = "${_csrf.headerName}";
+        var csrfTokenValue="${_csrf.token}";
+        
 		//첨부파일 추가
         $("input[type='file']").change(function(e){
         	var formData = new FormData();
@@ -210,6 +214,9 @@
         		,contentType: false
         		,data: formData
         		,type: 'POST'
+        		,beforeSend: function(xhr){
+        			xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+        		}
         		,dataType: 'json'
         		,success: function(result){
         			console.log(result);
@@ -406,6 +413,8 @@
                         </div>
                         <div class="card-body">
                         <form action="/board/edit" method="post">
+                        
+                        	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" >
                         	<div class="form-group">
                         		<label>제목</label> <input class="form-control" name='btitle' value='<c:out value="${bvo.btitle}"/>' >
                         	</div>
@@ -424,8 +433,14 @@
                         	<input type="hidden" name='type' value='<c:out value="${cri.type}"/>'>
                         	<input type="hidden" name='keyword' value='<c:out value="${cri.keyword}"/>'>
          
-                        	<button type="submit" data-oper='edit' class="btn btn-primary">수정</button>
-                        	<button type="submit" data-oper='remove' class="btn btn-primary">삭제</button>
+         					<sec:authentication property="principal" var="pinfo" />
+         					<sec:authorize access="isAuthenticated()">
+         						<c:if test="${pinfo.username eq bvo.bid}">
+		                        	<button type="submit" data-oper='edit' class="btn btn-primary">수정</button>
+		                        	<button type="submit" data-oper='remove' class="btn btn-primary">삭제</button>         							
+         						</c:if>
+         					</sec:authorize>	
+
                         	<button type="submit" data-oper='list' class="btn btn-primary">목록으로</button>
                         </form>
                         </div>

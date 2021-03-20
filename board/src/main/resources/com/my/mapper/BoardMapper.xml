@@ -98,7 +98,7 @@
 	
 	<update id="updateReplyCnt">
 		update khy_board 
-		set replycnt = replycnt + #{amount}
+		set breplycnt = breplycnt + #{amount}
 		where bno = #{bno}
 	</update>
 </mapper>

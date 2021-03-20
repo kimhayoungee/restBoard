@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>     
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>   
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>  
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -117,9 +118,9 @@
 				}
 				
 				var str="";
-				if(list==null || list.length==0){
+		/*  		if(list==null || list.length==0){
 					return;
-				}
+				}  */
 				
 				for(var i=0, len=list.length||0; i<len; i++){
 					str += "<li data-rno='" + list[i].rno + "'>";
@@ -145,6 +146,13 @@
 		var modalRegiBtn = $("#modalRegiBtn");
 		var modalCloseBtn = $("#modalCloseBtn");
 		
+		var replyer = null;
+		<sec:authorize access="isAuthenticated()">
+			replyer = '<sec:authentication property="principal.username" />';
+		</sec:authorize>
+		var csrfHeaderName = "${_csrf.headerName}";
+		var csrfTokenValue = "${_csrf.token}";
+		
 		//댓글 제목 클릭시 상세조회
 		$(".chat").on("click", "li", function(e){
 			var rno = $(this).data("rno");
@@ -164,9 +172,16 @@
 			});
 		});		
 		
+		//Ajax spring security header
+		$(document).ajaxSend(function(e, xhr, options){
+			
+			xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+			
+		});		
 		//등록 모달창 켜는 버튼
 		$("#addReplyBtn").on("click", function(e){
 			modal.find("input").val("");
+			modal.find("input[name='rid']").val(replyer);
 			modal.find("button[id != 'modalCloseBtn']").hide();
 			modalInputReplyDate.closest("div").hide();
 			modalRegiBtn.show();
@@ -197,7 +212,7 @@
 				alert(result);
 				modal.modal("hide");
 				showList(pageNum);
-			})
+			});
 			
 		});
 		
@@ -205,7 +220,25 @@
 		modalRemoBtn.on("click", function(e){
 			var rno = modal.data("rno");
 			
-			replyService.remove(rno, function(result){
+			console.log("rno: " + rno);
+			console.log("replyer: " + replyer);
+			
+			if(!replyer){
+				alert("로그인 후 삭제가 가능합니다");
+				modal.modal("hide");
+				return;
+			}
+			
+			var originalReplyer = modalInputRid.val();
+			console.log("Original Replyer: " + originalReplyer);
+			
+			if(replyer !=originalReplyer){
+				alert("자신이 작성한 댓글만 삭제가 가능합니다.");
+				modal.modal("hide");
+				return;
+			}
+			
+			replyService.remove(rno, originalReplyer, function(result){
 				
 				alert(result);
 				modal.modal("hide");

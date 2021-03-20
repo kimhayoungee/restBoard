@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,7 @@ public class ReplyController {
 	private ReplyService s;
 	
 	@PostMapping(value="/register", consumes="application/json", produces= {MediaType.TEXT_PLAIN_VALUE})
+	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<String> register(@RequestBody ReplyVO rvo){
 		log.info("컨트롤러 register");
 		
@@ -57,8 +59,9 @@ public class ReplyController {
 					     :new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@GetMapping(value="/remove/{rno}", produces= {MediaType.TEXT_PLAIN_VALUE})
-	public ResponseEntity<String> remove(@PathVariable("rno") int rno){
+	@PostMapping(value="/remove/{rno}", consumes="application/json", produces= {MediaType.TEXT_PLAIN_VALUE})
+	@PreAuthorize("principal.username == #rvo.rid")
+	public ResponseEntity<String> remove(@RequestBody ReplyVO rvo, @PathVariable("rno") int rno){
 		log.info("컨트롤러 remove");
 		
 		int result = s.removeReply(rno);

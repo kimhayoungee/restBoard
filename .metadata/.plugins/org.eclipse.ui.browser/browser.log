@@ -13,3 +13,8 @@
 3월 17, 2021 02:29:42.713 NEW SESSION
 3월 17, 2021 02:29:42.713 [7596:15068:0317/022942.706:ERROR:device_event_log_impl.cc(214)] [02:29:42.706] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 3월 17, 2021 02:54:41.617 [7596:15068:0317/025441.617:ERROR:CONSOLE(1660)] "Uncaught TypeError: Cannot read property 'restoreCallback' of null", source: chrome://new-tab-page/new_tab_page.js (1660)
+
+3월 21, 2021 01:35:06.394 NEW SESSION
+3월 21, 2021 01:35:06.394 [12964:16080:0321/013506.382:ERROR:device_event_log_impl.cc(214)] [01:35:06.382] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 21, 2021 02:40:51.27 [11224:4504:0321/024051.026:ERROR:device_event_log_impl.cc(214)] [02:40:51.026] USB: usb_device_handle_win.cc:1056 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+3월 21, 2021 02:42:18.275 [0321/024218.275:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\happy\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\efe5fb13-e6c5-4fb5-a176-dbb43487abba: 지정된 경로를 찾을 수 없습니다. (0x3)

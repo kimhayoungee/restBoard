@@ -78,6 +78,7 @@ public class BoardController {
 		}		
 		
 		@PostMapping("/edit")
+		@PreAuthorize("principal.username == #bvo.writer")
 		public String editBoard(BoardVO bvo, @ModelAttribute("cri") Criteria cri, RedirectAttributes ra) {
 			log.info("컨트롤러 editBoard " + bvo);
 			
@@ -89,7 +90,8 @@ public class BoardController {
 		}
 	
 		@PostMapping("/remove")
-		public String removeBoard(@RequestParam("bno") String bno, @ModelAttribute("cri") Criteria cri, RedirectAttributes ra) {
+		@PreAuthorize("principal.username == #bid")
+		public String removeBoard(@RequestParam("bno") String bno, String bid,@ModelAttribute("cri") Criteria cri, RedirectAttributes ra) {
 			log.info("컨트롤러 removeBoard " + bno);
 			
 			List<BoardAttachVO> atList = s.getAttachList(bno);

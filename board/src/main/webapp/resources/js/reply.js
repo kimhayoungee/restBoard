@@ -67,14 +67,19 @@ var replyService = (function(){
 		});
 	} //end of edit함수
 	
-	function remove(rno, callback, error){
+	function remove(rno, replyer, callback, error){
 		console.log("댓글 삭제 js");
+		var url = "/reply/remove/" + rno;
+		var encodedUrl = encodeURI(url);
 		
 		$.ajax({
-			 type : "get"
-			,url  : "/reply/remove/" + rno
+			 type : "post"
+			,url  : encodedUrl
+			,data : JSON.stringify({rno:rno, rid:replyer})
+			,contentType: "application/json; charset=utf-8"   
 			,success : function(result, status, xhr){
 				if(callback){
+					
 					callback(result);
 				}
 			 }
