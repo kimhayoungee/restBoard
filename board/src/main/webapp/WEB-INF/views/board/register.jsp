@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>   
 <!DOCTYPE html>
 <html lang="en">
 
@@ -358,12 +359,18 @@
                         </div>
                         <div class="card-body">
                         	<form action="/board/register" method="post" id="regForm">
+                        	
+                        	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                         	<div class="form-group">
                         		<label>제목</label> <input class="form-control" name='btitle'>
                         	</div>
                         	
                         	<div class="form-group">
                         		<label>내용</label> <textarea class="summernote" name='bcontent'></textarea>
+                        	</div>
+                        	
+                        	<div class="form-group">
+                        		<label>작성자</label> <input class="form-control" name='bid' value='<sec:authentication property="principal.username" />' readonly>
                         	</div>
                         	
                         	<button type="submit" class="btn btn-primary">등록</button>

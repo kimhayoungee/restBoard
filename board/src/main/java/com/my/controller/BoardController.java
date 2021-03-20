@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,11 +50,13 @@ public class BoardController {
 		
 		//페이지 이동
 		@GetMapping("/register")
+		@PreAuthorize("isAuthenticated()")
 		public void goRegister() {
 			
 		}
 		
 		@PostMapping("/register")
+		@PreAuthorize("isAuthenticated()")
 		public String register(BoardVO bvo, RedirectAttributes ra) {
 			log.info("컨트롤러 register " + bvo);
 			

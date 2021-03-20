@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>     
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>   
 <!DOCTYPE html>
 <html lang="en">
 
@@ -535,7 +536,13 @@
                         	<input type="hidden" name='type' value='<c:out value="${cri.type}"/>'>
                         	<input type="hidden" name='keyword' value='<c:out value="${cri.keyword}"/>'>
                         	
-                        	<button type="submit" data-oper='edit' class="btn btn-primary">수정/삭제</button>
+                        	<sec:authentication property="principal" var="pinfo" />
+                       		<sec:authorize access="isAuthenticated()">
+                        		<c:if test="${pinfo.username eq bvo.bid}">
+                        			<button type="submit" data-oper='edit' class="btn btn-primary">수정/삭제</button>
+                        		</c:if>
+                       		</sec:authorize>
+                       		
                         	<button type="submit" data-oper='list' class="btn btn-primary">목록으로</button>
                         </form>
                         </div>
@@ -561,7 +568,10 @@
 						<!-- 댓글 헤더 -->
 						<div class="card-header py-3">
 							<i class="fa fa-comments fa-fw"></i> Reply &nbsp;&nbsp;
-							<button id='addReplyBtn' class='btn btn-outline-primary'>댓글 작성</button>
+							
+							<sec:authorize access="isAuthenticated()"> 
+								<button id='addReplyBtn' class='btn btn-outline-primary'>댓글 작성</button>
+							</sec:authorize>
 						</div>
 						
 						<!-- 댓글목록 -->
