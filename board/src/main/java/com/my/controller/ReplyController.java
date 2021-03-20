@@ -49,6 +49,7 @@ public class ReplyController {
 	}
 	
 	@PostMapping(value="edit", consumes="application/json", produces= {MediaType.TEXT_PLAIN_VALUE})
+	@PreAuthorize("principal.username == #rvo.rid")
 	public ResponseEntity<String> edit(@RequestBody ReplyVO rvo){
 		log.info("컨트롤러 edit");
 			

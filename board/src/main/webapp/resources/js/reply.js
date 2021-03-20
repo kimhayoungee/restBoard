@@ -47,7 +47,7 @@ var replyService = (function(){
 	} //end of getList함수
 	
 	function edit(reply, callback, error){
-		console.log("댓글 수정 js " + reply.rno);
+		console.log("댓글 수정 js " + reply.rno + " : " + reply.replyer);
 		
 		$.ajax({
 			 type: 'post'
