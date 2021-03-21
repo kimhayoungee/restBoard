@@ -94,7 +94,7 @@
     <script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="/resources/js/sb-admin-2.min.js"></script>
@@ -104,7 +104,16 @@
 			e.preventDefault();
 			$("form").submit();
 		});
-	</script>
+	</script>	
+	
+	<c:if test="${param.error !=null }">
+		<script>
+		$(document).ready(function(){
+			alert("로그인에 실패했습니다");
+		});
+		</script>
+	</c:if>		
+	
 </body>
 
 </html>

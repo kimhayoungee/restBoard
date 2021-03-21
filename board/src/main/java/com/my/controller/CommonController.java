@@ -39,7 +39,17 @@ public class CommonController {
 	}
 	
 	@PostMapping("/customLogout")
-	public void logoutPost() {
+	public void logoutPost(String error, String logout, Model model) {
 		log.info("post custom logout");
+		log.info("error: " + error);
+		log.info("logout: " + logout);
+		
+		if(error !=null) {
+			model.addAttribute("error", "Logout Error Check Your Account");
+		}
+		
+		if(logout !=null) {
+			model.addAttribute("logout", "Logout!!");
+		}		
 	}
 } //end of CommonController

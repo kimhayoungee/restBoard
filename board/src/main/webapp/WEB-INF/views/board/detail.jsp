@@ -519,7 +519,7 @@
     }); //end of ready함수
     
     function showImage(fileCallPath){
-    	alert(fileCallPath);
+    	/* alert(fileCallPath); */
     	
     	$(".bigPictureWrapper").css("display", "flex").show();
     	
