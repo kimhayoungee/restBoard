@@ -54,29 +54,29 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" name="remember-me">
-                                                <label class="custom-control-label" for="customCheck">로그인 상태 유지</label>
+                                                <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me">
+                                                <label class="custom-control-label" for="remember-me">로그인 상태 유지</label>
                                             </div>
                                         </div>
             
                                         <button id="btn" class="btn btn-primary btn-user btn-block">로그인</button>
-                                        <hr>
+<!--                                         <hr>
                                         <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> 구글로 로그인
                                         </a>
                                         <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> 페이스북으로 로그인
-                                        </a>
+                                        </a> -->
                                         
                                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                     </form>
                                     <hr>
-                                    <div class="text-center">
+<!--                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">비밀번호 찾기</a>
                                     </div>
                                     <div class="text-center">
                                         <a class="small" href="register.html">회원 가입</a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
