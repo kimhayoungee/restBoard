@@ -69,15 +69,17 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-
+						
+						<sec:authorize access="isAuthenticated()">
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">김하영</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><sec:authentication property="principal.username" /> 님</span>
                                 <img class="img-profile rounded-circle"
                                     src="/resources/img/undraw_profile.svg">
                             </a>
+                            
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -85,33 +87,34 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                    	 내 정보
                                 </a>
-<!--                                 <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a> -->
                                 <div class="dropdown-divider"></div>
                                 
-                                <sec:authorize access="isAuthenticated()">
+                                
                                 <a class="dropdown-item" id="logout" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
-                                </sec:authorize>
-                         
-                                <sec:authorize access="isAnonymous()">
+<%--                                 <sec:authorize access="isAnonymous()">
                                 <a class="dropdown-item" id="login" href="#" data-toggle="modal" data-target="#logoutMo">
                                     <i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Login
                                 </a>                                      
-                                </sec:authorize>
-                                
-                                <form id="moveForm" method="get"></form>
-                                
+                                </sec:authorize> --%>
+                           
                             </div>
                         </li>
-
+						</sec:authorize>
+						
+						
+						<sec:authorize access="isAnonymous()">
+                        <a class="dropdown-item" id="login" href="#" data-toggle="modal" data-target="#logoutMo">
+                        	<i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                       		Login
+                        </a>                                      
+                        </sec:authorize>
                     </ul>
-
+                    
+					 <form id="moveForm" method="get"></form>
                 </nav>
                 <!-- End of Topbar -->
  
