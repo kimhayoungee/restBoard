@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>    
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %> 
 
 <%@include file="../includes/header.jsp" %>
 	
@@ -38,7 +39,9 @@
 		                                    <i class="fas fa-search fa-sm"></i>
 		                                </button>
 		                                &nbsp;               
+		                                <sec:authorize access="isAuthenticated()">
                         				<button id='regBtn' type="button" class="btn btn-outline-primary" >새 글 등록</button>
+		                            	</sec:authorize>
 		                            </div>
 
 		                        </div>
@@ -121,24 +124,6 @@
                 </div>
                 <!-- /.container-fluid -->
 
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
 
 	<%@include file="../includes/footer.jsp" %>
 	

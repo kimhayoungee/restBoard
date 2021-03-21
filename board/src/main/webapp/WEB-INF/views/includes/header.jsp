@@ -113,7 +113,7 @@
                 <!-- End of Topbar -->
  
 <script>
-	$(document).ready(function(){
+	
 		$("#login").on("click", function(){
 			
 			$("#moveForm").attr("action", "/customLogin");
@@ -131,6 +131,6 @@
 			$("#moveForm").attr("action", "/board/list");
 			$("#moveForm").submit();
 		});
-	});
+	
 </script>               
     
