@@ -18,7 +18,7 @@
 		       				<h6 class="m-0 font-weight-bold text-primary">게시글 작성</h6>
                         </div>
                         <div class="card-body">
-                        	<form action="/board/register" method="post" id="regForm">
+                        	<form method="post" id="regForm">
                         	
                         	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                         	<div class="form-group">
@@ -33,10 +33,17 @@
                         		<label>작성자</label> <input class="form-control" name='bid' value='<sec:authentication property="principal.username" />' readonly>
                         	</div>
                         	
-                        	<button type="submit" class="btn btn-primary">등록</button>
-                        	<button type="reset" class="btn btn-primary">취소</button>
                         	</form>
-                        
+                        	
+                        	<button type="submit" id="regBtn" class="btn btn-primary">등록</button>
+                        	<button type="submit" id="listBtn" class="btn btn-primary">취소</button>
+                        	
+                        	<form id="moveForm" method="get">
+	                         	<input type="hidden" name='pageNum' value='<c:out value="${cri.pageNum}"/>'>
+	                        	<input type="hidden" name='amount' value='<c:out value="${cri.amount}"/>'>
+	                        	<input type="hidden" name='type' value='<c:out value="${cri.type}"/>'>
+	                        	<input type="hidden" name='keyword' value='<c:out value="${cri.keyword}"/>'>                       	
+                        	</form>
                         </div>
                     </div>
                     <div class="card shadow mb-4">    
@@ -101,12 +108,12 @@
 
         $('.summernote').summernote(setting);
         
-        //첨부파일
+
         //등록 클릭시 기본동작 막기
        /*  var formObj = $("form[role='form']"); */
        var formObj = $('#regForm');
         
-        $("button[type='submit']").on("click", function(e){
+        $("#regBtn").on("click", function(e){
         	
         	e.preventDefault();
         	
@@ -124,6 +131,7 @@
         		str += "<input type='hidden' name='attachList["+i+"].fileType' value='" + jobj.data("type") + "'>";
         		
         	});
+        	formObj.attr("action", "/board/register");
         	formObj.append(str).submit();
         	
         });
@@ -243,7 +251,13 @@
     	
     	uploadUL.append(str);
     }
-
+    
+    $("#listBtn").on("click", function(){
+    
+    	$("#moveForm").attr("action", "/board/list").submit();
+    	
+    });
+	
     </script>
 
 </body>

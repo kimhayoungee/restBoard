@@ -5,7 +5,113 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2021-03-19T07:30:00Z</updated>
+  <updated>2021-03-24T18:39:00Z</updated>
+  <entry>
+    <title>SpringOne Tour 2021: #Booternetes</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/03/24/springone-tour-2021-booternetes" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-03-24:4399</id>
+    <updated>2021-03-24T18:39:00Z</updated>
+    <content type="html">&lt;p&gt;Join &lt;a href="https://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt;, &lt;a href="http://twitter.com/ntschutta"&gt;Nate Schutta&lt;/a&gt;, &lt;a href="https://twitter.com/mkheck"&gt;Mark Heckler (@mkheck)&lt;/a&gt;, &lt;a href="https://twitter.com/ciberkleid"&gt;Cora Iberkleid (@ciberkleid)&lt;/a&gt;, &lt;a href="https://twitter.com/pczarkowski"&gt;Paul Czarkowski (@pczarkowski)&lt;/a&gt;, and &lt;a href="https://twitter.com/tiffanyfayj"&gt;Tiffany Jernigan (@tiffanyfayj)&lt;/a&gt; for this journey from code with Spring Boot to production on Kubernetes. &lt;/p&gt;
+&lt;p&gt;For more great Tanzu, Kubernetes, and Spring content, check out our &lt;a href="https://www.youtube.com/c/VMwareTanzu?"&gt;VMware Tanzu channel&lt;/a&gt;&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/LfbU5xuR7Ck" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - March 23rd, 2021</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/03/23/this-week-in-spring-march-23rd-2021" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-03-24:4398</id>
+    <updated>2021-03-24T02:10:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! &lt;/p&gt;
+&lt;p&gt;Friends, director of Spring engineering and Spring Native cofounder Andy Clement and I will be doing a presentation with Bellsoft&amp;rsquo;s Dmitry Chuyko called &lt;a href="https://spring.io/blog/2021/03/22/spring-boot-production-ready-efficient-fast-pick-three"&gt;&lt;em&gt;Spring Boot: Production-ready, Efficient, Fast: Pick Three&lt;/em&gt;&lt;/a&gt;, that introduces how to build GraalVM native images for Spring Boot applications with the new Spring Native project. Do &lt;em&gt;not&lt;/em&gt; miss this webinar on March 25th at 11 am. &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Join Spring Cloud for Kubernetes lead Chris Sterling for this webinar, &lt;a href="https://tanzu.vmware.com/content/webinars/mar-25-gitops-for-apis-enterprise-microservices-in-the-age-of-kubernetes?src=so_602d54e7e837c&amp;cid=7012H000001KW9I"&gt;&lt;em&gt;GitOps for APIs: Enterprise Microservices in the Age of Kubernetes&lt;/em&gt;&lt;/a&gt;, on &lt;strong&gt;March 25, 2021, at 9:00 AM PTA&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Join VMWare Tanzu CTO James Watters for this webinar, &lt;a href="https://info.container-solutions.com/tanzu-webinar"&gt;&lt;em&gt;What Is Tanzu?&lt;/em&gt;&lt;/a&gt;, on &lt;strong&gt;March 24th at 17:00 CET&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://www.publickey1.jp/blog/21/spring_nativegraalvmspring_framworkjavakotlinjavavm.html"&gt;A nice Japanese language blog on the just-announced Spring Native project&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Hi, Spring fans! In last week&amp;rsquo;s installment of &lt;a href="https://spring.io/blog/2021/03/18/a-bootiful-podcast-fellow-java-champion-and-legend-angie-jones"&gt;&lt;em&gt;A Bootiful Podcast&lt;/em&gt;, I talked to fellow Java champion and legend Angie Jones&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/03/18/an-azure-spring-cloud-update-managed-virtual-network-and-autoscale-are-now-generally-available-in-azure-spring-cloud"&gt;An Azure Spring Cloud Update: Managed Virtual Network and Autoscale are now generally available in Azure Spring Cloud&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/03/22/bootiful-cassandra-with-datastax-s-patrick-mcfadin-cedrick-lunven-and-spring-s-josh-long"&gt;Bootiful Cassandra with DataStax&amp;rsquo;s Patrick McFadin, Cedrick Lunven, and Spring&amp;rsquo;s Josh Long&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://42crunch.com/knowledge-series/springfox-guide-security-definitions/"&gt;Creating High Quality OAS Definitions with Springfox - Part 1: Security Definitions - 42Crunch&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://devopschat.co/articles/kicking-spring-natives-tires"&gt;DevOpsChat Articles - Kicking Spring Native&amp;rsquo;s Tires&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/kmensah/status/1372296334439456768?s=12"&gt;Oracle finally released the R2DBC driver to Maven central!&lt;/a&gt; Get the bits while they&amp;rsquo;re hot!&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://twitter.com/phillip_webb/status/1372609929488396289?s=21"&gt;Spring Boot cofounder and lead Phil Webb on Twitter: &amp;ldquo;A massive thank you to the readers of DZone that voted Spring Boot as their favorite software framework! It was an honor to collect the award on behalf of the team and contributors.&amp;rdquo; &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/03/18/spring-batch-4-3-2-and-4-2-6-available-now"&gt;Spring Batch 4.3.2 and 4.2.6 available now&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/03/18/spring-boot-2-4-4-available-now"&gt;Spring Boot 2.4.4 available now&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/03/17/spring-tools-4-10-0-released"&gt;Spring Tools 4.10.0 released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/03/19/spring-boot-2-5-0-m3-available-now"&gt;Spring Boot 2.5.0-M3 available now&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/03/17/spring-cloud-aws-2-3-is-now-available"&gt;Spring Cloud AWS 2.3 is now available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/03/17/spring-data-2021-0-0-m5-2020-0-6-and-neumann-sr8-released"&gt;Spring Data 2021.0.0-M5, 2020.0.6, and Neumann SR8 released&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/03/18/spring-integration-5-5-m3-5-4-5-available"&gt;Spring Integration 5.5 M3 &amp;amp; 5.4.5 Available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://laurspilca.com/spring-quickly-further-reading/"&gt;Check out this appendix to the book &lt;em&gt;Spring Quickly&lt;/em&gt;&lt;/a&gt;; there&amp;rsquo;s a lot of good stuff in there!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Boot: Production-ready, Efficient, Fast: Pick Three</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/03/22/spring-boot-production-ready-efficient-fast-pick-three" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-03-23:4397</id>
+    <updated>2021-03-23T03:00:00Z</updated>
+    <content type="html">&lt;p&gt;Hi, Spring fans! I hope you&amp;rsquo;ll join the legendary Andy Clement (director of engineering on the Spring team, Spring/AspectJ/Spring Tool Suite/Eclipse contributor, and Spring Native cofounder) and me, well known ASCII art fan, for the upcoming &lt;a href="http://jrush.bell-sw.com/"&gt;JRUSH event&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;At some point, after you&amp;rsquo;ve gotten the business logic just right and the ASCII art resplendent, you&amp;rsquo;ll want to reduce data center spend and improve speed. And when this time comes, you&amp;rsquo;re going to wish you had watched this presentation where Andy and Josh introduce the Spring Native project. You don&amp;rsquo;t want regrets, do you, friend? Do the right thing. Be the change you want to see in the world: &lt;a href="https://jrush.bell-sw.com/"&gt;register now&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;This event is free, online, and will take place &lt;br /&gt;&lt;b&gt;this week, March 25th, 2021 at 11 am PDT&lt;/b&gt;. &lt;/p&gt;
+&lt;p&gt;Don&amp;rsquo;t miss it! &lt;/p&gt;
+&lt;table  border="0" padding ="0" margin="0"&gt;&#xD;
+&lt;tr&gt;&#xD;
+&lt;td width = "210"&gt;&#xD;
+&lt;img width ="200" src ="https://thumb.tildacdn.com/tild3066-3264-4966-a538-613031666562/-/resize/720x/-/format/webp/Frame_3.png" /&gt; &#xD;
+ &lt;/td&gt;&#xD;
+&lt;td  width = "210"&gt;&#xD;
+&lt;img width ="200"  src ="https://thumb.tildacdn.com/tild3334-6261-4732-b330-346332653165/-/resize/720x/-/format/webp/Frame_2.png" /&gt;&lt;/td&gt;&#xD;
+&lt;td  width = "210"&gt;&lt;img  width ="200" src = "https://thumb.tildacdn.com/tild3262-3535-4736-a239-393566333835/-/resize/720x/-/format/webp/Frame_1.png" /&gt; &lt;/td&gt;&#xD;
+&lt;/tr&gt;&#xD;
+&lt;tr&gt;&#xD;
+&lt;td&gt;&#xD;
+&lt;b&gt;Andrew Clement  &lt;/b&gt;&#xD;
+ Director on the Spring Engineering team and Spring Native cofounder   &lt;br/&gt;&#xD;
+&lt;a href="http://twitter.com/andy_clement"&gt;@andy_clement&lt;/a&gt;&#xD;
+&lt;/td&gt; &#xD;
+&lt;td&gt;&#xD;
+&lt;b&gt;Dmitry Chuyko &lt;/b&gt;   &lt;br/&gt; Performance engineer at BellSoft  &lt;br/&gt;&#xD;
+&lt;a href="http://twitter.com/dchuyko"&gt;@dchuyko &lt;/a&gt;&#xD;
+&lt;/td&gt;&#xD;
+&lt;td &gt;&#xD;
+&#xD;
+&lt;b&gt;Josh Long&lt;/b&gt; &lt;br /&gt; Spring Developer Advocate &lt;br/&gt; &lt;a href="http://twitter.com/starbuxman"&gt; @starbuxman &lt;/a&gt;&#xD;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
+  <entry>
+    <title>Bootiful Cassandra with DataStax's Patrick McFadin, Cedrick Lunven, and Spring's Josh Long</title>
+    <link rel="alternate" href="https://spring.io/blog/2021/03/22/bootiful-cassandra-with-datastax-s-patrick-mcfadin-cedrick-lunven-and-spring-s-josh-long" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2021-03-22:4396</id>
+    <updated>2021-03-22T18:53:00Z</updated>
+    <content type="html">&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/fGTZUObja7M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;Hi, Spring fans! DataStax and Spring &lt;em&gt;are&lt;/em&gt; the classic Netflixian definition of a cloud-native, and for good reason: &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;they scales&lt;/li&gt;
+  &lt;li&gt;they&amp;rsquo;re easy&lt;/li&gt;
+  &lt;li&gt;they&amp;rsquo;re easily operationalized&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this video, join DataStax&amp;rsquo;s &lt;a href="http://twitter.com/PatrickMcFadin"&gt;Patrick McFadin (@PatrickMcFadin)&lt;/a&gt;, &lt;a href="http://twitter.com/clunven"&gt;Cedrick Lunven (@clunven)&lt;/a&gt;, and the Spring team&amp;rsquo;s &lt;a href="http://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; as they introduce Bootiful Cassandra and look at some of the technology that continues to power some of the largest websites on the planet. &lt;/p&gt;
+&lt;p&gt;Register for DataStax Astra now and try this code anytime. You don&amp;rsquo;t need a credit card, and you get $25.00 USD credit every month, which gives you roughly 30M reads, 5M writes, 40GB storage monthly. That¡¯s sufficient enough to run this demo and even a small production workload.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://dtsx.io/3qjjRdR"&gt;Register here&lt;/a&gt;&lt;/p&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Spring Boot 2.5.0-M3 available now</title>
     <link rel="alternate" href="https://spring.io/blog/2021/03/19/spring-boot-2-5-0-m3-available-now" />
@@ -1028,113 +1134,6 @@ public class WebClientApplication {
 &lt;/div&gt;
 &lt;div class="paragraph"&gt;
 &lt;p&gt;Enjoy!&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - March 9th, 2021</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/03/09/this-week-in-spring-march-9th-2021" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-03-10:4379</id>
-    <updated>2021-03-10T01:14:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! Tomorrow is the day of Spring One Tour - do &lt;em&gt;not&lt;/em&gt; miss this event! We&amp;rsquo;ve also got a lot to get into this week so, without further ado&amp;hellip;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;In last week&amp;rsquo;s installment of a &lt;a href="https://spring.io/blog/2021/03/04/a-bootiful-podcast-spring-cloud-gateway-for-kubernetes-lead-chris-sterling-on-api-gateways-microservices-spring-cloud-and-more"&gt;&lt;em&gt;A Bootiful Podcast&lt;/em&gt;, I talk Spring Cloud Gateway for Kubernetes lead Chris Sterling on API Gateways, Microservices, Spring Cloud and more&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Tanzu Observability for Wavefront (formerly Wavefront) delivers scalable observability as a service where Spring developers can build analytics-driven dashboards based on multi-sourced data including metrics, traces, histograms, and span logs. The Spring team has worked side-by-side with the Tanzu Observability team to make the process quick and seamless?but there&amp;rsquo;s always room for improvement. You can provide feedback by participating in a user research effort going on right now and make your voice heard about how to make the Tanzu Observability experience with Spring better?choose a time good for you, &lt;a href="https://calendly.com/mgist1/spring-boot-wavefront"&gt;click here&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;I really enjoyed this &lt;a href="https://cacm.acm.org/magazines/2021/3/250706-a-second-conversation-with-werner-vogels/fulltext"&gt;Second Conversation with Amazon&amp;rsquo;s Werner Vogels from March 2021 in &lt;em&gt;Communications of the ACM&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I loved this post by &lt;a href="https://calendly.com/mgist1/spring-boot-wavefront?month=2021-03"&gt;https://calendly.com/mgist1/spring-boot-wavefront?month=2021-03&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/kotlin/status/1368082451877294081?s=12"&gt;Kotlin and RSocket tutorial&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/JavaAtMicrosoft/status/1367629885036916739"&gt; Check out this neat talk from Microsoft&amp;rsquo;s Julien Dubois about running Spring in a serverless environment from DevNexus 2021&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Taboola has built a very interesting Spring Boot Actuator that helps you debug asynchronous code - &lt;a href="https://github.com/taboola/async-profiler-actuator-endpoint"&gt;taboola/async-profiler-actuator-endpoint&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;The Baeldung blog has updated their article on &lt;a href="https://www.baeldung.com/spring-boot-security-autoconfiguration"&gt;Spring Boot Security autoconfiguration&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;How to build an API to &lt;a href="https://codeburst.io/how-to-build-an-api-to-perform-web-scraping-in-spring-boot-e8bfaaa4622e"&gt;perform web scraping in Spring Boot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=bg16bu_Gj-w"&gt;Example of CockroachDB &amp;amp; Java Spring Boot Application Architecture&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.youtube.com/watch?v=m-7oUV1x7jc"&gt;Caching in Spring Boot with the Caffeine cache&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;This looks interesing: &lt;a href="https://www.youtube.com/watch?v=Ll-Cz6h8s6I"&gt;Spring Boot password encrption with Jasypt&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>A Bootiful Podcast: Spring Cloud Gateway for Kubernetes lead Chris Sterling on API Gateways, Microservices, Spring Cloud and more</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/03/04/a-bootiful-podcast-spring-cloud-gateway-for-kubernetes-lead-chris-sterling-on-api-gateways-microservices-spring-cloud-and-more" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-03-04:4378</id>
-    <updated>2021-03-04T22:24:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! In this episode, &lt;a href="http://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to Spring Cloud Gateway for Kubernetes lead &lt;a href="http://twitter.com/csterwa"&gt;Chris Sterling (@csterwa)&lt;/a&gt; about API Gateways, Microservices, Spring Cloud, and more.&lt;/p&gt;
-&lt;iframe title="Spring Cloud Gateway for Kubernetes lead Chris Sterling on API Gateways, Microservices, Spring Cloud and more" height="122" width="100%" style="border: none;" scrolling="no" data-name="pb-iframe-player" src="https://www.podbean.com/media/player/3yu9y-fca825?from=pb6admin&amp;download=1&amp;version=1&amp;auto=0&amp;share=1&amp;download=1&amp;rtl=0&amp;fonts=Helvetica&amp;skin=1&amp;pfauth=&amp;btn-skin=107"&gt;&lt;/iframe&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - March 2nd, 2021</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/03/02/this-week-in-spring-march-2nd-2021" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2021-03-02:4377</id>
-    <updated>2021-03-02T22:47:00Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! I&amp;rsquo;ve finally managed to get my &lt;a href="https://joshlong.com/feed.html"&gt;joshlong.com/feed.html&lt;/a&gt; page working again so if you&amp;rsquo;re curious about what I&amp;rsquo;m doing, check this feed out. &lt;/p&gt;
-&lt;p&gt;We&amp;rsquo;ve got a really great roundup this week, so let&amp;rsquo;s get into it.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href="https://www.amazon.com/Spring-Boot-Running-Building-Applications-ebook/dp/B08W2QRQGQ/ref=mp_s_a_1_3?dchild=1&amp;keywords=spring+boot+up+and+running&amp;qid=1614279138&amp;sr=8-3"&gt;Check out our very own Mark Heckler¡¯s new book ¡°Spring Boot Up and Running¡±!&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/02/25/a-bootiful-podcast-spring-legend-greg-turnquist-on-spring-data-rest-hateoas-ci-and-so-much-more"&gt;A Bootiful Podcast: Spring legend Greg Turnquist on Spring Data REST, HATEOAS, CI, and so much more.&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Check out this first new installment of &lt;em&gt;Spring Tips&lt;/em&gt; in which I revisit &lt;a href="https://spring.io/blog/2021/02/23/spring-tips-spring-cloud-gateway-redux"&gt;Spring Cloud Gateway&lt;/a&gt;. This episode features a long, detailed look at all things Spring Cloud Gateway and features interviews with Spring Cloud cofounder and Spring Cloud Gateway creator Spencer Gibb and an interview with Spring Cloud Gateway for Kubernetes lead Chris Sterling.&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://twitter.com/dbbaskette/status/1364684787785596940?s=12"&gt;Congrats to Jacques Chester on his new book KNative in Action&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://mkyong.com/java/java-custom-annotations-example/"&gt;Custom annotations with Spring&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://foojay.io/today/deploying-spring-boot-applications-on-kubernetes/"&gt;Deploying Spring Boot Application on Kubernetes &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://blogs.vmware.com/opensource/2021/02/25/do-i-make-myself-clear/"&gt;Do I Make Myself Clear?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I dig this &lt;a href="https://www.infoq.com/articles/java-pattern-matching/"&gt;Java Feature Spotlight looking at pattern matching&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://www.infoq.com/news/2021/02/netflix-graphql-spring-boot/"&gt;Netflix Open Sources Their Domain Graph Service Framework: GraphQL for Spring Boot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2021/03/01/spring-integration-zip-1-0-4-cve-2021-22114"&gt;Spring Integration Zip 1.0.4 &amp;amp; CVE-2021-22114&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I love this video from RedMonk, &lt;a href="https://redmonk.com/videos/what-is-a-distributed-api-gateway/"&gt;&lt;em&gt;What is a Distributed API Gateway? How to get started with Spring Cloud Gateway for Kubernetes&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Integration Zip 1.0.4 &amp; CVE-2021-22114</title>
-    <link rel="alternate" href="https://spring.io/blog/2021/03/01/spring-integration-zip-1-0-4-cve-2021-22114" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Artem Bilan</name>
-    </author>
-    <id>tag:spring.io,2021-03-01:4376</id>
-    <updated>2021-03-01T14:40:00Z</updated>
-    <content type="html">&lt;div class="paragraph"&gt;
-&lt;p&gt;Dear Spring community,&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;On behalf of the team and everyone who contributed, it is my pleasure to announce &lt;code&gt;1.0.4.RELEASE&lt;/code&gt; version for Spring Integration Zip extension.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="sect1"&gt;
-&lt;h2 id="cve-2021-22114"&gt;&lt;a class="anchor" href="#cve-2021-22114"&gt;&lt;/a&gt;CVE-2021-22114&lt;/h2&gt;
-&lt;div class="sectionbody"&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;The &lt;code&gt;UnZipTransformer&lt;/code&gt; doesn&amp;#8217;t cover all the cases for &lt;a href="https://snyk.io/research/zip-slip-vulnerability"&gt;Zip Slip Vulnerability&lt;/a&gt; and some particular zip entry names may still end up outside of working directory.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;The updated fix has been released in the &lt;code&gt;spring-integration-zip-1.0.4.RELEASE&lt;/code&gt; version together with some other bug fixes and improvements.
-We also have published a new advisory for &lt;a href="https://tanzu.vmware.com/security/cve-2021-22114"&gt;CVE-2021-22114&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Credit: Trung Pham, Viettel Cyber Security.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Everybody who&amp;#8217;s using unzip feature from Spring Integration Zip is encouraged to upgrade respectively.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;Cheers,&amp;#160;&lt;br&gt;
-Artem&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="paragraph"&gt;
-&lt;p&gt;&lt;a href="https://github.com/spring-projects/spring-integration-extensions"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration-extensions/issues"&gt;GitHub Issues&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration/blob/master/CONTRIBUTING.adoc"&gt;Contributing&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-integration"&gt;Help&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-integration"&gt;Chat&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

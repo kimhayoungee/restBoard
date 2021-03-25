@@ -1,5 +1,0 @@
-package com.my.mapper;
-
-public interface BoardAttachMapper {
-
-}

@@ -48,16 +48,15 @@ public class BoardController {
 			return "board/list";
 		}
 		
-		//페이지 이동
 		@GetMapping("/register")
 		@PreAuthorize("isAuthenticated()")
-		public void goRegister() {
+		public void goRegister(@ModelAttribute("cri") Criteria cri) {
 			
 		}
 		
 		@PostMapping("/register")
 		@PreAuthorize("isAuthenticated()")
-		public String register(BoardVO bvo, RedirectAttributes ra) {
+		public String register(BoardVO bvo, RedirectAttributes ra, @ModelAttribute("cri") Criteria cri) {
 			log.info("컨트롤러 register " + bvo);
 			
 			if(bvo.getAttachList() !=null) {
@@ -67,7 +66,7 @@ public class BoardController {
 			s.register(bvo);
 			ra.addFlashAttribute("result", bvo.getBno());
 			
-			return "redirect:/board/list";
+			return "redirect:/board/list" + cri.getListLink();
 		}
 		
 		@GetMapping({"/detail", "/edit"})
