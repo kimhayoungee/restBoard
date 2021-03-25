@@ -104,4 +104,4 @@ public class BoardServiceImpl implements BoardService {
 		return am.findByBno(bno);
 	}
 
-}
+} //end of BoardServiceImpl
