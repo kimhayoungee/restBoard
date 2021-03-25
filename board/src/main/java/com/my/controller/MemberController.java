@@ -1,11 +1,20 @@
 package com.my.controller;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.my.domain.MemberVO;
+import com.my.service.MemberService;
 
 import lombok.extern.log4j.Log4j;
 
@@ -13,20 +22,33 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping("/member")
 @Log4j
 public class MemberController {
-
-	@PostMapping("/login")
-	public void login() {
-		
-	}
+	
+	@Autowired
+	private MemberService s;
 	
 	@GetMapping("/signup")
-	public void signup() {
+	public void goSignUp() {}
+	
+	@PostMapping("/signup")
+	public String signUp(MemberVO mvo, RedirectAttributes ra) {
+		log.info("컨트롤러 signup");
 		
+		s.signUp(mvo);
+		
+		return "redirect:/customLogin";
 	}
 	
-	@GetMapping("/update")
-	public void memupdate() {
+	@GetMapping("/idcheck")
+	@ResponseBody
+	public Map<Object, Object> idChk(@RequestParam("mid") String mid) {
+		log.info("컨트롤러 idChk");
 		
+		int result = s.idChk(mid);
+		log.info("아이디 중복확인 : " + result);
+		
+		Map<Object, Object> map = new HashMap<Object, Object>();
+		map.put("cnt", result);
+		
+		return map;
 	}
-	
 } //end of MemberController

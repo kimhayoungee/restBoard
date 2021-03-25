@@ -19,7 +19,7 @@ public class MemberServiceTest {
 	private MemberService s;
 	
 //	@Test
-	public void testRegisterMember() {
+	public void testSignup() {
 		MemberVO mvo = new MemberVO();
 		mvo.setMid("ohio");
 		mvo.setMpw("pw00");
@@ -27,10 +27,10 @@ public class MemberServiceTest {
 		mvo.setMaddress("몰라");
 		mvo.setMbirth(19921211);
 		
-		log.info(s.registerMember(mvo));
+		log.info(s.signUp(mvo));
 	}
 	
-	@Test
+//	@Test
 	public void testIdChk() {
 		log.info(s.idChk("ohio1"));
 	}

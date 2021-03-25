@@ -50,9 +50,7 @@ public class BoardController {
 		
 		@GetMapping("/register")
 		@PreAuthorize("isAuthenticated()")
-		public void goRegister(@ModelAttribute("cri") Criteria cri) {
-			
-		}
+		public void goRegister(@ModelAttribute("cri") Criteria cri) {}
 		
 		@PostMapping("/register")
 		@PreAuthorize("isAuthenticated()")

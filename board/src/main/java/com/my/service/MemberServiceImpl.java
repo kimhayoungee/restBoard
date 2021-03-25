@@ -18,7 +18,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	@Transactional
-	public int registerMember(MemberVO mvo) {
+	public int signUp(MemberVO mvo) {
 		// TODO Auto-generated method stub
 		log.info("서비스 registerMember(mvo) " + mvo);
 		

@@ -4,7 +4,7 @@ import com.my.domain.MemberVO;
 
 public interface MemberService {
 
-	public int registerMember(MemberVO mvo);
+	public int signUp(MemberVO mvo);
 	
 	public int idChk(String mid);
 	
