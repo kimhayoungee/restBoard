@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.my.mapper.MemberMapper">
 	
-	<resultMap type="com.my.domain.MemberVO" id="mMap">
+	<resultMap type="com.my.domain.MemberVO" id="memMap">
 		<id property="mid" column="mid"/>
 		<result property="mpw" column="mpw" />
 		<result property="mname" column="mname" />
@@ -10,19 +10,37 @@
 		<result property="mbirth" column="mbirth" />
 		<result property="msignupdate" column="msignupdate" />
 		<result property="mupdatedate" column="mupdatedate" />
-		<collection property="authList" resultMap="aMap" ></collection>
+		<collection property="authList" resultMap="authMap" ></collection>
 	</resultMap>
 	
-	<resultMap type="com.my.domain.AuthVO" id="aMap">
+	<resultMap type="com.my.domain.AuthVO" id="authMap">
 		<result property="mid" column="mid" />
 		<result property="auth" column="auth" />
 	</resultMap>
 	
-	<select id="read" resultMap="mMap">
+	<select id="read" resultMap="memMap">
 		select m.*, a.auth
 		from   khy_member m
 		left join khy_member_auth a
 		on   m.mid = a.mid
 		where m.mid = #{mid}
 	</select>
+	
+	<insert id="insertMember">
+		insert into khy_member(mid, mpw, mname, maddress, mbirth, msignupdate, mupdatedate)
+		values (#{mid}, #{mpw}, #{mname}, #{maddress}, #{mbirth}, sysdate, sysdate)
+	</insert>
+	
+	<insert id="insertAuth">
+		insert into khy_member_auth(mid, auth)
+		values (#{mid}, 'ROLE_USER')
+	</insert>
+	
+	<select id="selectId" resultType="int">
+		select count(mid)
+		from   khy_member
+		where  mid = #{mid}
+	</select>
+	
+	
 </mapper>
