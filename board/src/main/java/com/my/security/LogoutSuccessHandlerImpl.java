@@ -16,7 +16,7 @@ public class LogoutSuccessHandlerImpl implements LogoutSuccessHandler {
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
 	
-		response.sendRedirect("/customLogin");
+		response.sendRedirect("/");
 	}
 
 }

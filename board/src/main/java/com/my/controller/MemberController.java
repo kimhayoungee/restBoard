@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,20 +36,17 @@ public class MemberController {
 		
 		s.signUp(mvo);
 		
-		return "redirect:/customLogin";
+		return "redirect:/";
 	}
 	
-	@GetMapping("/idcheck")
+	@PostMapping(value="/idcheck")
 	@ResponseBody
-	public Map<Object, Object> idChk(@RequestParam("mid") String mid) {
-		log.info("컨트롤러 idChk");
+	public int idChk(@RequestParam("mid") String mid) throws Exception{
+		log.info("컨트롤러 idChk" + mid);
 		
 		int result = s.idChk(mid);
 		log.info("아이디 중복확인 : " + result);
 		
-		Map<Object, Object> map = new HashMap<Object, Object>();
-		map.put("cnt", result);
-		
-		return map;
+		return result;
 	}
 } //end of MemberController
