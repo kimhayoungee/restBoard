@@ -28,7 +28,7 @@
                         			<td>아이디
                         			<div class="input-group-append">
                         				<input class="form-control" name='mid' id='mid' style="width:300px;">
-                        				<button id="idChkBtn" class="btn">아이디 중복확인</button>
+                        				<a id="idChkBtn" class="btn">아이디 중복확인</a>
                         			</div>
                         			</td>
                         		</tr> 
@@ -90,11 +90,11 @@
 					xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
 				}
 				,success:function(data){
-					alert("성공 : ");
-					if(data.result>0){
+					alert("성공 : " + data.result); 
+					if(data.result==1){
 						alert("이미 존재하는 아이디입니다.");
 						$("#mid").focus();
-					}else{
+					}else if(data.result==0){
 						alert("사용 가능한 아이디입니다.");
 						$("#mpw").focus();
 					}

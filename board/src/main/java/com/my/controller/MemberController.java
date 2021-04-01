@@ -41,7 +41,7 @@ public class MemberController {
 	
 	@PostMapping(value="/idcheck")
 	@ResponseBody
-	public int idChk(@RequestParam("mid") String mid) throws Exception{
+	public int idChk(@RequestParam("mid") String mid){
 		log.info("컨트롤러 idChk" + mid);
 		
 		int result = s.idChk(mid);
