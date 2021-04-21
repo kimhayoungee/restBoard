@@ -12,6 +12,4 @@
 -junit으로 단위테스트 
 
 
-jdk 1.8, springframework 5.0.7, HikariCP 2.7.8, mybatis, log4j, lombok, Servlet 3.1.0,
-
-junit 4.12, jackson, gson, spring-security 5.0.6, maven 2.9 등 사용 
+jdk 1.8, springframework 5.0.7, HikariCP 2.7.8, mybatis, log4j, lombok, Servlet 3.1.0, junit 4.12, jackson, gson, spring-security 5.0.6, maven 2.9 등 사용 
