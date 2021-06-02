@@ -41,7 +41,7 @@ public class UploadController {
 	public ResponseEntity<byte[]> getFile(String fileName){
 		log.info("파일이름? " + fileName);
 		
-		File file = new File("D:\\upload\\" + fileName);
+		File file = new File("C:\\upload\\" + fileName);
 		log.info("파일 : " + file);
 		
 		ResponseEntity<byte[]> result = null;
@@ -64,7 +64,7 @@ public class UploadController {
 	public ResponseEntity<List<AttachFileDTO>> uploadAjaxPost(MultipartFile[] uploadFile) {
 		
 		List<AttachFileDTO> list = new ArrayList<>();
-		String uploadFolder = "D:\\upload";
+		String uploadFolder = "C:\\upload";
 		//날짜별 폴더
 		String uploadFolderPath = getFolder();
 		
@@ -125,7 +125,7 @@ public class UploadController {
 		
 		log.info("다운로드 파일 : " + fileName);
 		
-		Resource rs = new FileSystemResource("D:\\upload\\" + fileName);
+		Resource rs = new FileSystemResource("C:\\upload\\" + fileName);
 		
 		log.info("resource : " + rs);
 		
@@ -172,7 +172,7 @@ public class UploadController {
 		File file;
 		
 		try {
-			file = new File("D:\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
+			file = new File("C:\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
 			
 			file.delete();
 			

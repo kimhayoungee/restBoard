@@ -25,7 +25,7 @@ public class MemberTest {
 	@Autowired
 	private DataSource ds;
 	
-//	@Test
+	@Test
 	public void testInsertMember() {
 		String sql = "insert into khy_member(mid, mpw, mname) values(?, ?, ?)";
 		
@@ -69,7 +69,7 @@ public class MemberTest {
 		
 	} //end of testInsertMember()
 	
-	@Test
+//	@Test
 	public void testInsertAuth() {
 		
 		String sql = "insert into khy_member_auth (mid, auth) values (?, ?)";

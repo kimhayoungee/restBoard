@@ -30,18 +30,18 @@ public class FileChkTask {
 		
 		List<BoardAttachVO> atList = m.getOldFiles();
 		
-		List<Path> fileListPaths = atList.stream().map(vo -> Paths.get("D:\\upload", vo.getUploadPath(), vo.getUuid() + "_" + vo.getFileName()))
+		List<Path> fileListPaths = atList.stream().map(vo -> Paths.get("C:\\upload", vo.getUploadPath(), vo.getUuid() + "_" + vo.getFileName()))
 								   .collect(Collectors.toList());
 		
 		//썸네일
-		atList.stream().filter(vo -> vo.isFileType() == true).map(vo -> Paths.get("D:\\upload", vo.getUploadPath(), "s_"+vo.getUuid()+"_"+vo.getFileName()))
+		atList.stream().filter(vo -> vo.isFileType() == true).map(vo -> Paths.get("C:\\upload", vo.getUploadPath(), "s_"+vo.getUuid()+"_"+vo.getFileName()))
 		 .forEach(p -> fileListPaths.add(p));
 		
 		log.warn("=================================================");
 		
 		fileListPaths.forEach(p -> log.warn(p));
 		
-		File targetDir = Paths.get("D:\\upload", getFolderYesterday()).toFile();
+		File targetDir = Paths.get("C:\\upload", getFolderYesterday()).toFile();
 		
 		File[] removeFiles = targetDir.listFiles(file -> fileListPaths.contains(file.toPath()) == false);
 		

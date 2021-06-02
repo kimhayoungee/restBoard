@@ -19,7 +19,7 @@ public class BoardPageVO {
 		this.total = total;
 		this.cri = cri;
 		
-		this.endPage = ((cri.getPageNum()/10) +1) *10;
+		this.endPage = ((cri.getPageNum()/11) +1) *10;
 		this.startPage = this.endPage -9;
 		
 		int realEndPage = (total / cri.getAmount()) +1;

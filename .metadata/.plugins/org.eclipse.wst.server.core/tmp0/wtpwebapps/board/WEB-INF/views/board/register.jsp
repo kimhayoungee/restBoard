@@ -26,7 +26,8 @@
                         	</div>
                         	
                         	<div class="form-group">
-                        		<label>내용</label> <textarea class="summernote" name='bcontent'></textarea>
+                        		<label>내용</label> <textarea class="form-control" name='bcontent'></textarea>
+                        		<!--  <textarea class="summernote" name='bcontent'></textarea> -->
                         	</div>
                         	
                         	<div class="form-group">
@@ -78,7 +79,7 @@
     
     <script>
     $(document).ready(function(){
-    	//서머노트
+    	/*서머노트
     	var toolbar = [
 		    // 글꼴 설정
 		    ['fontname', ['fontname']],
@@ -107,7 +108,7 @@
         };
 
         $('.summernote').summernote(setting);
-        
+*/
 
         //등록 클릭시 기본동작 막기
        /*  var formObj = $("form[role='form']"); */

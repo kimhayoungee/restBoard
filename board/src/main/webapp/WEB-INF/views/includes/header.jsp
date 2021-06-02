@@ -45,6 +45,9 @@
                 <div class="sidebar-brand-text mx-3">자유 게시판</div>
             </a>
 			
+			<a>
+			
+			</a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 

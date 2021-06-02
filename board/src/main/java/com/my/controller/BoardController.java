@@ -71,6 +71,7 @@ public class BoardController {
 		public void goDetail(@RequestParam("bno") String bno, @ModelAttribute("cri") Criteria cri, Model model) {
 			log.info("컨트롤러 showDetail 혹은 edit" + bno);
 			
+			
 			model.addAttribute("bvo", s.showDetail(bno));
 		}		
 		
@@ -116,12 +117,12 @@ public class BoardController {
 			
 			atList.forEach(attach -> {
 				try {
-					Path file = Paths.get("D:\\upload\\" + attach.getUploadPath() + "\\" + attach.getUuid() + "_" + attach.getFileName());
+					Path file = Paths.get("C:\\upload\\" + attach.getUploadPath() + "\\" + attach.getUuid() + "_" + attach.getFileName());
 					
 					Files.deleteIfExists(file);
 					
 					if(Files.probeContentType(file).startsWith("image")) {
-						Path thumbNail = Paths.get("D:\\upload\\" + attach.getUploadPath() + "\\s_" + attach.getUuid() + "_" + attach.getFileName());
+						Path thumbNail = Paths.get("C:\\upload\\" + attach.getUploadPath() + "\\s_" + attach.getUuid() + "_" + attach.getFileName());
 						
 						Files.delete(thumbNail);
 					}

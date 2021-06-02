@@ -104,6 +104,7 @@
 			e.preventDefault();
 			$("form").submit();
 		});
+		
 	</script>	
 	
 	<c:if test="${param.error !=null }">

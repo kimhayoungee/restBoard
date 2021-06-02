@@ -322,7 +322,7 @@
 			var reply = {reply:modalInputReply.val(), rid:modalInputRid.val(), bno:bnoVal};
 			
 			replyService.add(reply, function(result){
-				alert(result);
+				//alert(result);
 				
 				modal.find("input").val("");
 				modal.modal("hide");
@@ -352,7 +352,7 @@
 			}
 			
 			replyService.edit(reply, function(result){
-				alert(result);
+				//alert(result);
 				modal.modal("hide");
 				showList(pageNum);
 			});
@@ -383,7 +383,7 @@
 			
 			replyService.remove(rno, originalReplyer, function(result){
 				
-				alert(result);
+				//alert(result);
 				modal.modal("hide");
 				showList(pageNum);
 				
