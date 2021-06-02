@@ -44,10 +44,10 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">자유 게시판</div>
             </a>
-			
-			<a>
-			
+			<a id="board2" class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+				<div class="sidebar-brand-text mx-3">게시판</div>
 			</a>
+			
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
@@ -134,6 +134,11 @@
 			$("#moveForm").attr("action", "/board/list");
 			$("#moveForm").submit();
 		});
+		
+		$("#board2").on("click", function(){
+			$("#moveForm").attr("action", "/");
+			$("#moveForm").submit();
+		})
 	
 </script>               
     
