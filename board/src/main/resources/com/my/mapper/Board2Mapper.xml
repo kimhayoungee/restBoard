@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.mapper.Board2Mapper">
+
+	<insert id="insertBoard">
+		insert into khy_board2(bno, bid, btitle, bcontent, bregdate, bupdatedate, bhit, bdeleteyn)
+		values(#{bno}, #{bid}, #{btitle}, #{bcontent}, sysdate, sysdate, 0, 'Y')
+	</insert>
+	
+	<select id="selectList" resultType="com.my.domain.Board2VO">
+		select * from khy_board2
+		where  bdeleteyn = 'Y'
+		order  by bno desc
+	</select>
+
+	<select id="selectDetail" resultType="com.my.domain.Board2VO">
+		select * from khy_board2
+		where  bdeleteyn = 'Y'
+		and    bno = #{bno}
+	</select>
+	
+	<update id="updateBoard">
+		update khy_board2
+		set    btitle = #{btitle}
+			  ,bcontent = #{bcontent}
+			  ,bupdatedate = sysdate
+		where  bno = #{bno}
+		and    bdeleteyn = 'Y'
+	</update>
+	
+	<update id="deleteBoard">
+		update khy_board2
+		set    bdeleteyn = 'N'
+		      ,bupdatedate = sysdate
+		where  bno = #{bno}
+		and    bdeleteyn = 'Y'
+	</update>
+	
+	<update id="updateHit">
+		update khy_board2
+		set    bhit = bhit + 1
+		where  bno = #{bno}
+		and    bdeleteyn = 'Y'
+	</update>
+</mapper>
