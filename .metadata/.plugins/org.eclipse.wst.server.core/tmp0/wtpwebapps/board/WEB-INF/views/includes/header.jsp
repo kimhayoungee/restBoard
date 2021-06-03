@@ -136,7 +136,7 @@
 		});
 		
 		$("#board2").on("click", function(){
-			$("#moveForm").attr("action", "/");
+			$("#moveForm").attr("action", "/board2/list");
 			$("#moveForm").submit();
 		})
 	
