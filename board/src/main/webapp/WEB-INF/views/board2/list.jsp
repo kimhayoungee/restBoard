@@ -109,13 +109,13 @@
 		<script type="text/javascript">
 			$(document).ready(function(){
 				
-				
+				var af = $('#actionForm');
 				//제목 클릭시 페이지 이동
 				$(".move").on("click", function(e){
 					e.preventDefault();
-					actionForm.append("<input type='hidden' name='bno' value='" + $(this).attr("href") + "'>");
-					actionForm.attr("action", "/board/detail");
-					actionForm.submit();
+					af.append("<input type='hidden' name='bno' value='" + $(this).attr("href") + "'>");
+					af.attr("action", "/board2/detail");
+					af.submit();
 				});
 				
 				$("#regBtn").on("click", function(){

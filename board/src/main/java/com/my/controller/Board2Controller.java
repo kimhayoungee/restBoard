@@ -52,6 +52,9 @@ public class Board2Controller {
 		return "redirect:/board2/list";
 	}
 	
+	@GetMapping("/edit")
+	public void goEdit() {}
+	
 	@PostMapping("/edit")
 	public String edit(Board2VO bvo, RedirectAttributes ra) {
 		log.info("컨트롤러 edit " + bvo);
