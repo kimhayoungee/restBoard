@@ -6,7 +6,7 @@ import com.my.domain.Board2VO;
 
 public interface Board2Mapper {
 
-	//게시글 리스트 조회(페이징x, 임시)
+	//게시글 리스트 조회(페이징x,검색x 임시)
 	public List<Board2VO> selectList();
 	
 	//게시글 상세 조회
@@ -24,5 +24,7 @@ public interface Board2Mapper {
 	//조회수 카운트
 	public int updateHit(String bno);
 	
+	//채번
+	public String getNumber();
 	
 } //end of Board2Mapper
