@@ -30,7 +30,7 @@ public class Board2Controller {
 		return "board2/list";
 	}
 	
-	@GetMapping("detail")
+	@GetMapping("/detail")
 	public void goDetail(@RequestParam("bno") String bno, Model model) {
 		log.info("컨트롤러 showDetail " + bno);
 		
@@ -38,6 +38,9 @@ public class Board2Controller {
 		
 		model.addAttribute("bvo", s.showDetail(bno));
 	}
+	
+	@GetMapping("/register")
+	public void goRegister() {}
 	
 	@PostMapping("/register")
 	public String register(Board2VO bvo, RedirectAttributes ra) {

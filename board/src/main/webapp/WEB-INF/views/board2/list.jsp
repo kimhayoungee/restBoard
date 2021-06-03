@@ -117,6 +117,10 @@
 					actionForm.attr("action", "/board/detail");
 					actionForm.submit();
 				});
+				
+				$("#regBtn").on("click", function(){
+					self.location = "/board2/register";
+				});
 			});
 		
 		</script>
