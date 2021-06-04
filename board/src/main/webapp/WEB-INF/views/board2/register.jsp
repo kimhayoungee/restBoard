@@ -43,6 +43,7 @@
                		<div class="card shadow mb-4">
                			<!-- 첨부파일 추가 -->
                		</div>
+               		
 				</div> <!-- end of container-fluid -->
 				
 <%@include file="../includes/footer.jsp" %>

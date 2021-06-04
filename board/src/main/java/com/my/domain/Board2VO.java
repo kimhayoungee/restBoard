@@ -17,6 +17,7 @@ public class Board2VO {
 	private int bhit;
 	private String bdeleteyn;
 	
+	private int battachcnt;
 	//첨부파일 추가
 	
 }

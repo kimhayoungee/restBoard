@@ -88,6 +88,7 @@
 	                   				</sec:authorize>
 	                   				
 	                   				<button type="submit" data-oper='list' class="btn btn-primary">목록으로</button>
+	                   				<input type="hidden" name="bno" value='<c:out value="${bvo.bno}"/>'>
 	                   			</form>
                    			</div> <!-- end of card-body -->           			
                    		</div> <!-- end of card -->

@@ -65,4 +65,12 @@ public class Board2ServiceImpl implements Board2Service {
 		return bm.deleteBoard(bno);
 	}
 
+	@Override
+	public int countHit(String bno) {
+		// TODO Auto-generated method stub
+		log.info("서비스 countHit(bno) " + bno);
+		
+		return bm.updateHit(bno);
+	}
+
 }

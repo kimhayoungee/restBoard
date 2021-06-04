@@ -1,5 +1,7 @@
 package com.my.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,12 +33,17 @@ public class Board2Controller {
 	}
 	
 	@GetMapping("/detail")
-	public void goDetail(@RequestParam("bno") String bno, Model model) {
+	public void goDetail(@RequestParam("bno") String bno, Model model, Principal principal) {
 		log.info("컨트롤러 showDetail " + bno);
 		
-		//조회수 처리 
+		Board2VO bvo = s.showDetail(bno);
 		
-		model.addAttribute("bvo", s.showDetail(bno));
+		//조회수 처리 
+		String loginId = principal.getName();
+		String writer = bvo.getBid();
+		if(!loginId.equals(writer)) s.countHit(bno);
+		
+		model.addAttribute("bvo", bvo);
 	}
 	
 	@GetMapping("/register")
@@ -53,7 +60,11 @@ public class Board2Controller {
 	}
 	
 	@GetMapping("/edit")
-	public void goEdit() {}
+	public void goEdit(@RequestParam("bno") String bno, Model model) {
+		log.info("컨트롤러 goEdit(bno) " + bno);
+		
+		model.addAttribute("bvo", s.showDetail(bno));
+	}
 	
 	@PostMapping("/edit")
 	public String edit(Board2VO bvo, RedirectAttributes ra) {

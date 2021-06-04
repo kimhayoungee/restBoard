@@ -16,4 +16,5 @@ public interface Board2Service {
 	
 	public int removeBoard(String bno);
 	
+	public int countHit(String bno);
 } //end of Board2Service

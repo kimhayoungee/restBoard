@@ -59,7 +59,8 @@
                 							<td><c:out value="${board.bno}"></c:out></td>
                 							<td>
                 								<a class='move' href='<c:out value="${board.bno}" />'>
-                								<c:out value="${board.btitle}"></c:out></a>
+                								<c:out value="${board.btitle}" />
+                								<i class="fas fa-paperclip fa-sm"></i><c:out value="${board.battachcnt}" /></a>
                 							</td>
                 							<td><c:out value="${board.bcontent}"></c:out></td>
                 							<td><c:out value="${board.bhit}"></c:out></td>
