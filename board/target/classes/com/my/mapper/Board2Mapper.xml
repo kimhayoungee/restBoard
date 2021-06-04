@@ -9,9 +9,13 @@
 	</insert>
 	
 	<select id="selectList" resultType="com.my.domain.Board2VO">
-		select * from khy_board2
-		where  bdeleteyn = 'Y'
-		order  by bno desc
+		select count(ka.uuid), kb.bno, kb.bid, kb.btitle, kb.bcontent, kb.bregdate, kb.breplycnt, kb.bhit
+		from   khy_attach2 ka
+		right outer join khy_board2 kb
+		on    (ka.bno = kb.bno)
+		where  kb.bdeleteyn = 'Y'
+		group by kb.bno, kb.bid, kb.btitle, kb.bcontent, kb.bregdate, kb.breplycnt, kb.bhit
+		order by kb.bno desc		
 	</select>
 
 	<select id="selectDetail" resultType="com.my.domain.Board2VO">
