@@ -139,7 +139,7 @@
         
         //
         var regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
-        var maxSize = 5242880 //5MB
+        var maxSize = 5242880; //5MB
         
         function chkExtension(fileName, fileSize){
         	if(fileSize >=maxSize){
@@ -206,7 +206,7 @@
         		,dataType: 'text'
         		,type: 'POST'
         		,success: function(result){
-        			alert(result);
+        			//alert(result);
         			targetLi.remove();
         		}
         	});
@@ -244,7 +244,7 @@
     			str += "<span> " + obj.fileName + "</span>";
     			str += "<button type='button' data-file=\'" + fileCallPath + "\' "
     			str += "data-type='file' class='btn btn-warning btn-circle'><i class='far fa-times-circle'></i></button><br>";
-    			str += "<img src='/resources/img/attach.png'></a>";
+    			str += "<img src='/resources/img/attach.png' alt=''></a>";
     			str += "</div>";
     			str += "</li>";
     		}

@@ -39,7 +39,7 @@ public class UploadController {
 	@GetMapping("/display")
 	@ResponseBody
 	public ResponseEntity<byte[]> getFile(String fileName){
-		log.info("파일이름? " + fileName);
+		log.info("파일이름: " + fileName);
 		
 		File file = new File("C:\\upload\\" + fileName);
 		log.info("파일 : " + file);

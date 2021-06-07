@@ -24,7 +24,7 @@
     	width: 100px;
     }
     .uploadResult ul li span{
-    	color: white;
+    	
     }
     .bigPictureWrapper{
     	position: absolute;

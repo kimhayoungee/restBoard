@@ -3,6 +3,7 @@ package com.my.service;
 import java.util.List;
 
 import com.my.domain.Board2VO;
+import com.my.domain.BoardAttachVO;
 
 public interface Board2Service {
 
@@ -17,4 +18,7 @@ public interface Board2Service {
 	public int removeBoard(String bno);
 	
 	public int countHit(String bno);
+	
+	public List<BoardAttachVO> getAttachList(String bno);
+	
 } //end of Board2Service

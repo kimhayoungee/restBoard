@@ -41,3 +41,16 @@
 6월 04, 2021 09:22:48.31 NEW SESSION
 6월 04, 2021 09:22:48.31 [10532:4012:0604/092248.027:ERROR:device_event_log_impl.cc(214)] [09:22:48.026] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
 6월 04, 2021 09:22:48.32 [10532:4012:0604/092248.028:ERROR:device_event_log_impl.cc(214)] [09:22:48.027] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+6월 04, 2021 12:53:02.488 [10532:8228:0604/125302.485:ERROR:connection_factory_impl.cc(429)] Failed to connect to MCS endpoint with error -7
+6월 04, 2021 12:53:04.239 [10532:8228:0604/125304.238:ERROR:connection_factory_impl.cc(429)] Failed to connect to MCS endpoint with error -106
+6월 04, 2021 13:08:22.335 [10532:8228:0604/130822.334:ERROR:connection_handler_impl.cc(476)] Timed out waiting for GCM Protocol buffer.
+
+6월 07, 2021 10:09:55.200 NEW SESSION
+6월 07, 2021 10:09:55.200 [7032:10340:0607/100955.196:ERROR:device_event_log_impl.cc(214)] [10:09:55.197] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+6월 07, 2021 13:05:22.214 [5448:11824:0607/130522.213:ERROR:device_event_log_impl.cc(214)] [13:05:22.213] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+6월 07, 2021 13:05:22.216 [5448:11824:0607/130522.213:ERROR:usb_descriptors.cc(140)] Failed to read length for configuration 1.
+6월 07, 2021 13:05:22.217 [5448:11824:0607/130522.213:ERROR:usb_descriptors.cc(140)] Failed to read length for configuration 2.
+6월 07, 2021 13:05:22.217 [5448:11824:0607/130522.214:ERROR:usb_descriptors.cc(140)] Failed to read length for configuration 3.
+6월 07, 2021 13:05:22.218 [5448:11824:0607/130522.214:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 4, got 1.
+6월 07, 2021 13:05:22.219 [5448:11824:0607/130522.214:ERROR:device_event_log_impl.cc(214)] [13:05:22.214] USB: usb_device_win.cc:93 Failed to read descriptors from \\?\usb#vid_05ac&pid_12a8#2f6b8a7e039eb65224e16f50213f504385e1ecfd#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
+6월 07, 2021 13:05:22.220 [5448:11824:0607/130522.214:ERROR:device_event_log_impl.cc(214)] [13:05:22.214] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)

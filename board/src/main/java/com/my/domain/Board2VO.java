@@ -1,6 +1,7 @@
 package com.my.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -18,6 +19,7 @@ public class Board2VO {
 	private String bdeleteyn;
 	
 	private int battachcnt;
-	//첨부파일 추가
+	
+	private List<BoardAttachVO> attachList;
 	
 }

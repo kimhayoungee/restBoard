@@ -74,6 +74,10 @@
 	                   			</div>
 	                   			
 	                   			<div class="form-group">
+	                   				<label>작성자</label> <textarea class="form-control" readonly><c:out value="${bvo.bid }" /></textarea>
+	                   			</div>
+	                   			
+	                   			<div class="form-group">
 	                   				<label>작성일</label> <input class="form-control" value='<fmt:formatDate pattern="yyyy-MM-dd" value="${bvo.bregdate}" />' readonly>
 	                   			</div>     
 	                   			

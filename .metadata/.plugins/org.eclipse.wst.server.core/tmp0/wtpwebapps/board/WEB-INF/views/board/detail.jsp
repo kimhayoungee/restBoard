@@ -23,8 +23,9 @@
     .uploadResult ul li img{
     	width: 100px;
     }
-    .uploadResult ul li span{
-    	color: white;
+    .uploadResult ul li span:hover {
+    	color: blue;
+    	text-decoration:underline;
     }
     .bigPictureWrapper{
     	position: absolute;
@@ -470,7 +471,7 @@
 			setTimeout(function(){$('.bigPictureWrapper').hide();}, 1000);
 		});
 		
-		//첨부파일 추가
+/* 		//첨부파일 추가
         $("input[type='file']").change(function(e){
         	var formData = new FormData();
         	var inputFile = $("input[name='uploadFile']");
@@ -496,7 +497,7 @@
         		}
         	});
         	
-        });		
+        });		 */
     }); //end of ready함수
     
     function showImage(fileCallPath){
