@@ -135,6 +135,29 @@
 			});
 		}); //enf of input file change
 		
+		//첨부파일 변경시 ajax
+		$(".uploadResult").on("click", "button", function(e){
+			console.log("파일 삭제");
+			
+			var targetFile = $(this).data("file");
+			var type = $(this).data("type");
+			var targetLi = $(this).closest("li");
+			
+			$.ajax({
+				 url: '/deleteFile'
+				,data: {fileName: targetFile, type: type}
+				,beforeSend: function(xhr){
+					xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+ 				 }
+				,dataType: 'text'
+				,type: 'POST'
+				,success: function(result){
+					targetLi.remove();
+				 }
+			
+			});
+		}); 
+		
 	});	//end of ready
 	
 	$("#listBtn").on("click", function(){
