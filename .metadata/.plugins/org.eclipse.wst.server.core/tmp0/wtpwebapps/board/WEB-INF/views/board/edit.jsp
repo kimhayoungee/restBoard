@@ -54,7 +54,7 @@
 
                     <!-- Page Heading -->
                   <!--   <h1 class="h3 mb-2 text-gray-800">게시글 쓰기</h1> -->
-                    <p class="mb-4">게시글 쓰기</p>
+                    <p class="mb-4">게시글 수정</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -103,7 +103,7 @@
 					
 					<div class="card shadow mb-4">
 						<div class="card-header py-3">
-							<h6 class="m=0 font-weight-bold text-primary">첨부 파일</h6>
+							<h6 class="m-0 font-weight-bold text-primary">첨부 파일</h6>
 						</div>
 						
 						<div class="card-body">

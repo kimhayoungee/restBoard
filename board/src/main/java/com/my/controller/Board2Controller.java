@@ -85,6 +85,10 @@ public class Board2Controller {
 	public String edit(Board2VO bvo, RedirectAttributes ra) {
 		log.info("컨트롤러 edit " + bvo);
 		
+		if(bvo.getAttachList() !=null) {
+			bvo.getAttachList().forEach(attach -> log.info(attach));
+		}		
+		
 		if(s.editBoard(bvo)==1) {
 			ra.addFlashAttribute("result", "성공");
 		}

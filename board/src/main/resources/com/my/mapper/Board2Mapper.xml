@@ -10,7 +10,7 @@
 	
 	<select id="selectList" resultType="com.my.domain.Board2VO">
 		select count(ka.uuid) battachcnt, kb.bno, kb.bid, kb.btitle, kb.bcontent, kb.bregdate, kb.breplycnt, kb.bhit
-		from   khy_attach2 ka
+		from   khy_attach ka
 		right outer join khy_board2 kb
 		on    (ka.bno = kb.bno)
 		where  kb.bdeleteyn = 'Y'

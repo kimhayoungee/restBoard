@@ -32,7 +32,9 @@ public class Board2ServiceImpl implements Board2Service {
 		bvo.setBno(bm.getNumber());
 		bm.insertBoard(bvo);
 		
-		if(bvo.getAttachList() ==null || bvo.getAttachList().size() <=0) return;
+		if(bvo.getAttachList() ==null || bvo.getAttachList().size() <=0) {
+			return;
+		}
 		
 		bvo.getAttachList().forEach(attach -> {
 			attach.setBno(bvo.getBno());

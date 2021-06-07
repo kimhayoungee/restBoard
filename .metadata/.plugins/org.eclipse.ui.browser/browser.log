@@ -61,3 +61,11 @@
 6월 07, 2021 14:06:25.451 [9804:4928:0607/140625.435:ERROR:usb_descriptors.cc(100)] Failed to read all configuration descriptors. Expected 4, got 1.
 6월 07, 2021 14:06:25.452 [9804:4928:0607/140625.435:ERROR:device_event_log_impl.cc(214)] [14:06:25.434] USB: usb_device_win.cc:93 Failed to read descriptors from \\?\usb#vid_05ac&pid_12a8#2f6b8a7e039eb65224e16f50213f504385e1ecfd#{a5dcbf10-6530-11d2-901f-00c04fb951ed}.
 6월 07, 2021 14:06:25.453 [9804:4928:0607/140625.435:ERROR:device_event_log_impl.cc(214)] [14:06:25.434] USB: usb_device_handle_win.cc:1058 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+6월 07, 2021 14:38:33.51 [9804:10192:0607/143833.050:ERROR:connection_factory_impl.cc(429)] Failed to connect to MCS endpoint with error -105
+6월 07, 2021 14:38:33.980 [9804:4928:0607/143833.980:ERROR:device_event_log_impl.cc(214)] [14:38:33.979] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
+6월 07, 2021 14:38:34.678 [9804:4928:0607/143834.678:ERROR:device_event_log_impl.cc(214)] [14:38:34.678] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
+6월 07, 2021 14:38:38.264 [9804:10192:0607/143838.263:ERROR:connection_factory_impl.cc(429)] Failed to connect to MCS endpoint with error -105
+6월 07, 2021 14:43:19.719 [9804:10192:0607/144319.718:ERROR:connection_factory_impl.cc(429)] Failed to connect to MCS endpoint with error -106
+6월 07, 2021 16:01:00.66 [9804:10192:0607/160100.065:ERROR:connection_factory_impl.cc(429)] Failed to connect to MCS endpoint with error -105
+6월 07, 2021 16:04:41.285 [9804:4928:0607/160441.284:ERROR:device_event_log_impl.cc(214)] [16:04:41.276] USB: usb_service_win.cc:258 Failed to get device driver name: 요소가 없습니다. (0x490)
+6월 07, 2021 16:41:53.118 [9804:10192:0607/164153.118:ERROR:connection_factory_impl.cc(429)] Failed to connect to MCS endpoint with error -105

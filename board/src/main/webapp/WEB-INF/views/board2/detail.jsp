@@ -24,7 +24,7 @@
     	width: 100px;
     }
     .uploadResult ul li span{
-    	color: white;
+    	
     }
     .bigPictureWrapper{
     	position: absolute;
@@ -97,7 +97,18 @@
                    			</div> <!-- end of card-body -->           			
                    		</div> <!-- end of card -->
                    		
-                   		<!-- 첨부파일 추가 -->
+                   		<!-- 첨부파일 -->
+                   		<div class="card shadow mb-4">
+                   			<div class="card-header py-3">
+                   				<h6 class="m-0 font-weight-bold text-primary">첨부 파일</h6>
+                   			</div>
+                   			
+                   			<div class="card-body">
+                   				<div class="uploadResult">
+                   					<ul></ul>
+                   				</div>
+                   			</div>
+                   		</div>
                    		
                    		<!-- 댓글 추가 -->
                    		
@@ -109,6 +120,7 @@
 <script>
 	$(document).ready(function(){
 		
+		//버튼 이벤트
 		var of = $("#operForm");
 		
 		$("button[data-oper='edit']").on("click", function(e){
@@ -119,7 +131,61 @@
 			//of.find("#bno").remove();
 			of.attr("action", "/board2/list").submit();
 		});
-	});
+		
+		//첨부파일 보여주기
+		var bno = '<c:out value="${bvo.bno}" />';
+		$.getJSON("/board/getAttachList", {bno:bno}, function(arr){
+			console.log("arr확인 : " + arr);
+			
+			var str = "";
+			$(arr).each(function(i, attach){
+   				if(attach.fileType){
+   					var fileCallPath = encodeURIComponent( attach.uploadPath + "/s_" + attach.uuid + "_" + attach.fileName);
+   					
+   					str += "<li data-path='" + attach.uploadPath + "' data-uuid='" + attach.uuid;
+   					str += "' data-filename='" + attach.fileName + "' data-type='" + attach.fileType + "' ><div>";
+   					str += "<img src='/display?fileName=" + fileCallPath + "'>";
+   					str += "</div></li>";
+   				}else{
+   					str += "<li data-path='" + attach.uploadPath + "' data-uuid='" + attach.uuid;
+   					str += "' data-filename='" + attach.fileName + "' data-type='" + attach.fileType + "' ><div>";
+   					str += "<span> " + attach.fileName + "</span><br>";
+   					str += "</div></li>";
+   				}
+			});
+			
+			$(".uploadResult ul").html(str);
+		});
+		
+		//첨부파일 클릭시
+		$(".uploadResult").on("click", "li", function(e){
+			console.log("첨부파일 클릭");
+			
+			var liObj = $(this);
+			var path = encodeURIComponent(liObj.data("path") + "/" + liObj.data("uuid") + "_" + liObj.data("filename"));
+			
+			if(liObj.data("type")){
+				showImage(path.replace(new RegExp(/\\/g), "/"));
+			}else{
+				//이미지 아닐 경우 다운로드
+				self.location = "/download?fileName=" + path;
+			}
+		});
+		
+		//원본 이미지창 닫기
+		$(".bigPictureWrapper").on("click", function(e){
+			$(".bigPicture").animate({width: '0%', height: '0%'}, 1000);
+			
+			setTimeout(function(){$('.bigPictureWrapper').hide();}, 1000);
+		});
+	}); //end of ready함수
+	
+	
+	function showImage(fileCallPath){
+		$(".bigPictureWrapper").css("display", "flex").show();
+		
+		$(".bigPicture").html("<img src='/display?fileName=" + fileCallPath + "'>").animate({width: '100%', height: '100%'}, 1000);
+	}
 
 </script>
 </body>
