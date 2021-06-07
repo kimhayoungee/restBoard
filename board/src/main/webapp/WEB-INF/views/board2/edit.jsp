@@ -63,7 +63,7 @@
                			</div> 
                			
                			<div class="card-body">
-               				<form method="post">
+               				<form action="/board2/edit" method="post">
 	                        	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	                        	<div class="form-group">
 	                        		<label>제목</label> <input class="form-control" name='btitle' value='<c:out value="${bvo.btitle }"/>'>
@@ -78,9 +78,6 @@
 	                        		<label>작성자</label> <input class="form-control" name='bid' value='<c:out value="${bvo.bid }" />' readonly>
 	                        	</div>
 	                        	
-	                        	<input type="hidden" name='bno' value='<c:out value="${bvo.bno}"/>'>
-                        	
-                        	
 	                        	<sec:authentication property="principal" var="pinfo" />
 	                        	<sec:authorize access="isAuthenticated()">
 	                        		<c:if test="${pinfo.username eq bvo.bid }">
@@ -88,7 +85,8 @@
 			                        	<button type="submit" data-oper='remove' class="btn btn-primary">삭제</button>
 		                        	</c:if>
 	                        	</sec:authorize>
-                        	
+	                        	
+                        		<input type="hidden" name='bno' value='<c:out value="${bvo.bno}"/>'>
 								<button type="submit" data-oper='list' class="btn btn-primary">목록으로</button>
                         	</form>
 
@@ -119,6 +117,37 @@
 <!-- 스크립트 -->
 <script>
 	$(document).ready(function(){
+    	var bno = '<c:out value="${bvo.bno}" />';
+    	$.getJSON("/board/getAttachList", {bno:bno}, function(arr){
+    		console.log(arr);
+    		var str = "";
+    		
+    		$(arr).each(function(i, attach){
+    			if(attach.fileType){
+    				var fileCallPath = encodeURIComponent( attach.uploadPath + "/s_" + attach.uuid + "_" + attach.fileName);
+    				
+    				str += "<li data-path='" + attach.uploadPath + "' data-uuid='" + attach.uuid;
+    				str += "' data-filename='" + attach.fileName + "' data-type='" + attach.fileType + "'><div>";
+    				str += "<span> " + attach.fileName + "</span>";
+    				str += "<button type='button' data-file=\'" + fileCallPath + "\' data-type='image' ";
+    				str += "class='btn btn-warning stn-circle'><i class='far fa-times-circle'></i></button><br>";
+    				str += "<img src='/display?fileName=" + fileCallPath + "'>";
+    				str += "</div></li>";
+    				
+    			}else{
+    				str += "<li data-path='" + attach.uploadPath + "' data-uuid='" + attach.uuid;
+    				str += "' data-filename='" + attach.fileName + "' data-type='" + attach.fileType + "'><div>";
+    				str += "<span> " + attach.fileName + "</span><br>";
+    				str += "<button type='button' data-file=\'" + fileCallPath + "\' data-type='file' ";
+    				str += "class='btn btn-warning btn-circle'><i class='far fa-times-circle'></i></button><br>";
+    				str += "</div></li>";
+    			}	
+    		});
+    		
+    		$(".uploadResult ul").html(str);
+    	}); //end of getJSON
+    			
+		//버튼이벤트
 		var formObj = $("form");
 		
 		$('button').on("click", function(e){
@@ -144,16 +173,26 @@
 					var jobj = $(obj);
 					console.dir(jobj);
 					
-					str += "<input type='hidden' name='attachList["+i+"].fileName' value='" + jobj.data("filename") + "'>";
-					str += "<input type='hidden' name='attachList["+i+"].uuid' value='" + jobj.data("uuid") + "'>";
+        			str += "<input type='hidden' name='attachList["+i+"].fileName' value='" + jobj.data("filename") + "'>";
+        			str += "<input type='hidden' name='attachList["+i+"].uuid' value='" + jobj.data("uuid") + "'>";
         			str += "<input type='hidden' name='attachList["+i+"].uploadPath' value='" + jobj.data("path") + "'>";
         			str += "<input type='hidden' name='attachList["+i+"].fileType' value='" + jobj.data("type") + "'>";
 				});
-				formObj.append(str).submit();
+				formObj.append(str);
 			}
 			
 			formObj.submit();
 		});
+		
+        //첨부파일 변경
+        $(".uploadResult").on("click", "button", function(e){
+        	console.log("파일 삭제버튼 클릭");
+        	
+        	if(confirm("이 파일을 삭제하시겠습니까?")){
+        		var targetLi = $(this).closest("li");
+        		targetLi.remove();
+        	}
+        });			
 		
 		var regex = new RegExp("(.*?)\.(exe|sh|zip|alz)$");
 		var maxSize = 3145728; //3MB
@@ -206,33 +245,7 @@
         });
 
 
-        //첨부파일 변경
-        $(".uploadResult").on("click", "button", function(e){
-        	console.log("파일 변경시 삭제");
-			if(confirm("이 파일을 삭제하시겠습니까?")){
-				var targetLi = $(this).closest("li");
-				targetLi.remove();
-			}
-			
-        	var targetFile = $(this).data("file");
-        	var type = $(this).data("type");
-        	
-        	var targetLi = $(this).closest("li");
-        	
-        	$.ajax({
-        		 url: '/deleteFile'
-        		,data: {fileName: targetFile, type: type}
-        		,beforeSend: function(xhr){
-        			xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
-        		}
-        		,dataType: 'text'
-        		,type: 'POST'
-        		,success: function(result){
-        			
-        			targetLi.remove();
-        		}
-        	});
-        });		
+
 	}); //end of ready
 	
 	

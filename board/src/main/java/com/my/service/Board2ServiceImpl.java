@@ -41,8 +41,6 @@ public class Board2ServiceImpl implements Board2Service {
 			am.insert(attach);
 		});
 		
-		//첨부파일 추가
-		
 	}
 
 	@Override
@@ -72,8 +70,10 @@ public class Board2ServiceImpl implements Board2Service {
 		am.deleteAll(bvo.getBno());
 		
 		int editResult = bm.updateBoard(bvo);
+		log.info("수정결과 : " + editResult);
 		
 		if(editResult ==1 && bvo.getAttachList() !=null && bvo.getAttachList().size() >0) {
+			log.info("확인");
 			bvo.getAttachList().forEach(attach -> {
 				attach.setBno(bvo.getBno());
 				am.insert(attach);
