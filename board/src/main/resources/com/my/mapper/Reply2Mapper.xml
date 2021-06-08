@@ -19,8 +19,12 @@
 		where  rno = #{rno}
 	</update>
 	
-	<select id="select" resultType="com.my.domain.Reply2VO">
-	
+	<select id="selectList" resultType="com.my.domain.Reply2VO">
+		select * 
+		from   khy_reply2
+		where  bno = #{bno}
+		and	   rdeleteyn = 'Y'
+		order by rno asc
 	</select>
 	
 </mapper>

@@ -236,7 +236,7 @@
 		var bnoVal = '<c:out value="${bvo.bno}" />';
 		var replyUL = $(".chat");
 		
-		//showList();
+		showList();
 		
 		var modal = $(".modal");
 		var modalInputReply = modal.find("input[name='reply']");
@@ -293,7 +293,7 @@
 				modal.find("input").val("");
 				modal.modal("hide");
 				
-				//showList();
+				showList();
 			});
 		});
 		
@@ -355,12 +355,27 @@
 				
 			});
 		});
+		
+		//댓글 리스트 조회 추가 
+		function showList(){
+			replyService.getList({bno:bnoVal}, function(list){
+				console.log("list: " + list);
+				var str = "";
+				for(var i=0, len=list.length||0; i<len; i++){
+					str += "<li data-rno='" + list[i].rno + "'>";
+					str += "<div><div><strong class='primary-font'>" + list[i].rid +"</strong>";
+					str += "<small>&nbsp;&nbsp;&nbsp;" + replyService.displayTime(list[i].replydate) + "</small></div>";
+					str += "<p>" + list[i].reply + "</p></div></li>";				
+				}
+				
+				replyUL.html(str);
+				
+			})
+			
+		}		
 	}); //end of ready함수
 	
-	//댓글 리스트 조회 추가 
-	function showList(){
-		
-	}
+
 	
 	function showImage(fileCallPath){
 		$(".bigPictureWrapper").css("display", "flex").show();

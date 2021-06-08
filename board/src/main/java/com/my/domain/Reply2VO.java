@@ -1,6 +1,7 @@
 package com.my.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -17,4 +18,5 @@ public class Reply2VO {
 	private Date replydate;
 	private Date rupdatedate;
 	
+	private List<Reply2VO> list;
 }

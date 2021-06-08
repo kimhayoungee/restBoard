@@ -31,12 +31,11 @@ var replyService = (function(){
 		console.log("댓글 전체 조회 js");
 		
 		var bno = param.bno;
-		var pageNum = param.pageNum || 1;
 		
-		$.getJSON("/reply/page/" + bno + "/" + pageNum + ".json"
+		$.getJSON("/reply2/list/" + bno + ".json"
 			,function(data){
 				if(callback){
-					callback(data.replyCnt, data.list);
+					callback(data.list);
 				}
 			}
 		).fail(function(xhr, status, err){

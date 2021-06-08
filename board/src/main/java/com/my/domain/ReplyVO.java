@@ -15,5 +15,4 @@ public class ReplyVO {
 	private Date rupdatedate;
 	private String rdeleteyn;
 	
-	
 }

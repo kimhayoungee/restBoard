@@ -1,5 +1,7 @@
 package com.my.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +38,15 @@ public class Reply2ServiceImpl implements Reply2Service {
 		log.info("서비스 edit(rvo) " + rvo);
 		
 		return rm.update(rvo);
+	}
+
+	@Override
+	public Reply2VO getList(String bno) {
+		// TODO Auto-generated method stub
+		log.info("서비스 getList(bno) " + bno);
+		Reply2VO rvo = new Reply2VO();
+		rvo.setList(rm.selectList(bno));
+		return rvo;
 	}
 
 }
