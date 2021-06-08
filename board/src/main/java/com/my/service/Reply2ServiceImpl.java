@@ -30,4 +30,12 @@ public class Reply2ServiceImpl implements Reply2Service {
 		return rm.insert(rvo);
 	}
 
+	@Override
+	public int edit(Reply2VO rvo) {
+		// TODO Auto-generated method stub
+		log.info("서비스 edit(rvo) " + rvo);
+		
+		return rm.update(rvo);
+	}
+
 }

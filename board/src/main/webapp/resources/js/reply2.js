@@ -51,7 +51,7 @@ var replyService = (function(){
 		
 		$.ajax({
 			 type: 'post'
-			,url : '/reply/edit'
+			,url : '/reply2/edit'
 			,data: JSON.stringify(reply)
 			,contentType: "application/json; charset=utf-8"
 			,success: function(result, status, xhr){

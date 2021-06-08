@@ -12,6 +12,13 @@
 		)
 	</insert>
 	
+	<update id="update">
+		update khy_reply2
+		set    reply = #{reply}
+			  ,rupdatedate = sysdate
+		where  rno = #{rno}
+	</update>
+	
 	<select id="select" resultType="com.my.domain.Reply2VO">
 	
 	</select>

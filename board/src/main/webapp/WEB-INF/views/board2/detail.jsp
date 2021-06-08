@@ -320,7 +320,7 @@
 			replyService.edit(reply, function(result){
 				//alert(result);
 				modal.modal("hide");
-				showList(pageNum);
+				//showList();
 			});
 			
 		});

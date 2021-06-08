@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,19 @@ public class Reply2Controller {
 		log.info("컨트롤러 register " + rvo);
 		
 		int result = s.register(rvo);
+		log.info("댓글 등록 : " + result);
+		
+		return result==1? new ResponseEntity<>("success", HttpStatus.OK)
+				         :new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+	
+	@PostMapping(value="/edit", consumes="application/json", produces= {MediaType.TEXT_PLAIN_VALUE})
+	@PreAuthorize("principal.username == #rvo.rid")
+	public ResponseEntity<String> edit(@RequestBody Reply2VO rvo){
+		log.info("컨트롤러 edit " + rvo);
+		
+		int result = s.edit(rvo);
+		log.info("댓글 수정 : " + result);
 		
 		return result==1? new ResponseEntity<>("success", HttpStatus.OK)
 				         :new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
