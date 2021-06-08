@@ -2,6 +2,8 @@ package com.my.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.my.domain.Board2VO;
 
 public interface Board2Mapper {
@@ -26,5 +28,7 @@ public interface Board2Mapper {
 	
 	//채번
 	public String getNumber();
+	
+	public void updateReplyCnt(@Param("bno") String bno);
 	
 } //end of Board2Mapper

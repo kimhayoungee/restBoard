@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="uploadResult"/>
+		<item key="selection" value="bno"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="uploadResult"/>
-			<item value="alert"/>
-			<item value="파일선택"/>
-			<item value="파일 선택"/>
+			<item value="bno"/>
+			<item value="getAttachList"/>
+			<item value="getattac"/>
 			<item value="getattachlist"/>
+			<item value="showUploadResult"/>
+			<item value="&lt;input type=&quot;hidden&quot; name=&apos;bno&apos; value=&apos;&lt;c:out value=&quot;${bvo.bno}&quot;/&gt;&apos;&gt;"/>
+			<item value="chkExtension"/>
+			<item value="uploadFile"/>
 			<item value="display"/>
+			<item value="targetLi"/>
+			<item value="tagetLi"/>
 			<item value="file"/>
-			<item value="paperclip"/>
-			<item value="clip"/>
-			<item value="attachment"/>
-			<item value="pinfo"/>
-			<item value="actionForm"/>
-			<item value="moveForm"/>
-			<item value="getatta"/>
-			<item value="get"/>
+			<item value="uploadResult"/>
+			<item value="download"/>
+			<item value="alert"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1528"/>
-		<item key="DIALOG_Y_ORIGIN" value="585"/>
+		<item key="DIALOG_X_ORIGIN" value="874"/>
+		<item key="DIALOG_Y_ORIGIN" value="576"/>
 		<item key="DIALOG_WIDTH" value="340"/>
 		<item key="DIALOG_HEIGHT" value="454"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|5|0|맑은 고딕"/>
 	</section>
 </section>

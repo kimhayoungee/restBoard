@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.my.mapper.Reply2Mapper">
+	
+	<insert id="insert">
+		insert into khy_reply2(
+			rno, bno, rupperno, rdepth, rid, reply, rdeleteyn, replydate, rupdatedate
+		)values(
+			#{rno}, #{bno}, #{rupperno, jdbcType=VARCHAR}, #{rdepth}, #{rid}, #{reply}, 'Y', sysdate, sysdate
+		)
+	</insert>
+	
+	<select id="select" resultType="com.my.domain.Reply2VO">
+	
+	</select>
+	
+</mapper>

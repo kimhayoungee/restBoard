@@ -110,13 +110,66 @@
                    			</div>
                    		</div>
                    		
-                   		<!-- 댓글 추가 -->
-                   		
+	                    <!-- 댓글 -->
+						<div class="card shadow mb-4">
+							<!-- 댓글 헤더 -->
+							<div class="card-header py-3">
+								<i class="fa fa-comments fa-fw"></i> Reply &nbsp;&nbsp;
+								
+								<c:if test="${pinfo.username != bvo.bid}">
+									<button id='addReplyBtn' class='btn btn-outline-primary'>댓글 작성</button>
+								</c:if>
+							</div>
+							
+							<!-- 댓글 목록 -->
+							<div class="card-body">
+								<ul class="chat"></ul>
+							</div>
+                   		</div>
+
+						<!-- 댓글 modal -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										<h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
+									</div>
+									
+									<div class="modal-body">
+										<div class="form-group">
+											<label>댓글 내용</label>
+											<input class="form-control" name='reply' value='New Reply!'>
+										</div>
+										<div class="form-group">
+											<label>작성자</label>
+											<input class="form-control" name='rid' value='rid'>
+										</div>
+										<div class="form-group">
+											<label>작성일</label>
+											<input class="form-control" name='replyDate' value=''>
+											<input type='hidden' name='rdepth'>
+											<input type='hidden' name='rupperno'>
+										</div>
+									</div>
+									
+									<div class="modal-footer">
+										<button id="modalEditBtn" type="button" class="btn btn-warning">수정</button>
+										<button id="modalRemoBtn" type="button" class="btn btn-danger">삭제</button>
+										<button id="modalRegiBtn" type="button" class="btn btn-primary">등록</button>
+										<button id="modalCloseBtn" type="button" class="btn btn-primary">닫기</button>
+									</div> 
+								</div>
+							</div>
+						</div>
+						<!-- end of 댓글 modal -->
+						
                    </div> <!-- end of container-fluid -->
                    
 <%@include file="../includes/footer.jsp" %>                  
 
 <!-- 스크립트 -->
+<script type="text/javascript" src="/resources/js/reply2.js"></script>
 <script>
 	$(document).ready(function(){
 		
@@ -178,8 +231,136 @@
 			
 			setTimeout(function(){$('.bigPictureWrapper').hide();}, 1000);
 		});
+		
+		//댓글
+		var bnoVal = '<c:out value="${bvo.bno}" />';
+		var replyUL = $(".chat");
+		
+		//showList();
+		
+		var modal = $(".modal");
+		var modalInputReply = modal.find("input[name='reply']");
+		var modalInputRid = modal.find("input[name='rid']");
+		var modalInputRdepth = modal.find("input[name='rdepth']");
+		var modalInputRupperno = modal.find("input[name='rupperno']");
+		var modalInputReplyDate = modal.find("input[name='replyDate']");
+		
+		var modalEditBtn = $("#modalEditBtn");
+		var modalRemoBtn = $("#modalRemoBtn");
+		var modalRegiBtn = $("#modalRegiBtn");
+		var modalCloseBtn = $("#modalCloseBtn");
+		
+		var replyer = null;
+		<sec:authorize access="isAuthenticated()">
+			replyer = '<sec:authentication property="principal.username" />';
+		</sec:authorize>
+		var csrfHeaderName = "${_csrf.headerName}";
+		var csrfTokenValue = "${_csrf.token}";
+		
+		//댓글 제목 클릭시 상세조회 추가
+		$(".chat").on("click", "li", function(e){
+			var rno = $(this).data("rno");
+			
+			
+		});
+
+		//Ajax spring security header
+		$(document).ajaxSend(function(e, xhr, options){
+			xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
+		});
+		
+		//등록모달창 키는 버튼
+		$("#addReplyBtn").on("click", function(e){
+			modal.find("input").val("");
+			modal.find("input[name='rid']").val(replyer).attr("readonly", true);
+			modal.find("input[name='rdepth']").val(1);
+			modal.find("input[name='rupperno']").val(0);
+			modal.find("button[id != 'modalCloseBtn']").hide();
+			modalInputReplyDate.closest("div").hide();
+			modalRegiBtn.show();
+			
+			modal.modal("show");
+			
+		});
+		
+		//모달창 내 등록버튼
+		modalRegiBtn.on("click", function(e){
+			var reply = {reply:modalInputReply.val(), rid:modalInputRid.val(), bno:bnoVal, rdepth:modalInputRdepth.val(), rupperno:modalInputRupperno.val()};
+			
+			replyService.add(reply, function(result){
+				//alert(result);
+				
+				modal.find("input").val("");
+				modal.modal("hide");
+				
+				//showList();
+			});
+		});
+		
+		//모달창 내 수정버튼
+		modalEditBtn.on("click", function(e){
+			
+			var originalReplyer = modalInputRid.val();
+			var reply = {rno:modal.data("rno"), reply:modalInputReply.val(), rid:originalReplyer};
+			
+			if(!replyer){
+				alert("로그인 후 수정이 가능합니다");
+				modal.modal("hide");
+				return;
+			}
+			
+			console.log("Original Replyer: " + originalReplyer);
+			
+			if(replyer !=originalReplyer){
+				alert("자신이 작성한 댓글만 수정이 가능합니다.");
+				modal.modal("hide");
+				return;
+			}
+			
+			replyService.edit(reply, function(result){
+				//alert(result);
+				modal.modal("hide");
+				showList(pageNum);
+			});
+			
+		});
+		
+		//모달창 내 삭제버튼
+		modalRemoBtn.on("click", function(e){
+			var rno = modal.data("rno");
+			
+			console.log("rno: " + rno);
+			console.log("replyer: " + replyer);
+			
+			if(!replyer){
+				alert("로그인 후 삭제가 가능합니다");
+				modal.modal("hide");
+				return;
+			}
+			
+			var originalReplyer = modalInputRid.val();
+			console.log("Original Replyer: " + originalReplyer);
+			
+			if(replyer !=originalReplyer){
+				alert("자신이 작성한 댓글만 삭제가 가능합니다.");
+				modal.modal("hide");
+				return;
+			}
+			
+			replyService.remove(rno, originalReplyer, function(result){
+				
+				//alert(result);
+				modal.modal("hide");
+				showList(pageNum);
+				
+			});
+		});
 	}); //end of ready함수
 	
+	//댓글 리스트 조회 추가 
+	function showList(){
+		
+	}
 	
 	function showImage(fileCallPath){
 		$(".bigPictureWrapper").css("display", "flex").show();
