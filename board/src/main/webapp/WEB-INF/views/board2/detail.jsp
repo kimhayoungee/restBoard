@@ -257,13 +257,6 @@
 		var csrfHeaderName = "${_csrf.headerName}";
 		var csrfTokenValue = "${_csrf.token}";
 		
-		//댓글 제목 클릭시 상세조회 추가
-		$(".chat").on("click", "li", function(e){
-			var rno = $(this).data("rno");
-			
-			
-		});
-
 		//Ajax spring security header
 		$(document).ajaxSend(function(e, xhr, options){
 			xhr.setRequestHeader(csrfHeaderName, csrfTokenValue);
@@ -281,6 +274,23 @@
 			
 			modal.modal("show");
 			
+		});
+		
+		//답글 모달창 키는 버튼
+		$("#addReplyBtn2").on("click", function(e){			
+			
+			modal.find("input").val("");
+			modal.find("input[name='reply']").val("");
+			
+			modal.find("input[name='rid']").val(replyer).attr("readonly", true);
+			modal.find("input[name='rdepth']").val(2);
+			//댓글 작성자로 밸류 추가 
+			modal.find("input[name='rupperno']").val();
+			modal.find("button[id != 'modalCloseBtn']").hide();
+			modalInputReplyDate.closest("div").hide();
+			modalRegiBtn.show();
+			
+			modal.modal("show");			
 		});
 		
 		//모달창 내 등록버튼
@@ -320,7 +330,7 @@
 			replyService.edit(reply, function(result){
 				//alert(result);
 				modal.modal("hide");
-				//showList();
+				showList();
 			});
 			
 		});
@@ -351,7 +361,7 @@
 				
 				//alert(result);
 				modal.modal("hide");
-				showList(pageNum);
+				showList();
 				
 			});
 		});
@@ -362,17 +372,39 @@
 				console.log("list: " + list);
 				var str = "";
 				for(var i=0, len=list.length||0; i<len; i++){
+					console.log("rno확인 : " + list[i].rno);
 					str += "<li data-rno='" + list[i].rno + "'>";
 					str += "<div><div><strong class='primary-font'>" + list[i].rid +"</strong>";
 					str += "<small>&nbsp;&nbsp;&nbsp;" + replyService.displayTime(list[i].replydate) + "</small></div>";
-					str += "<p>" + list[i].reply + "</p></div></li>";				
+					str += "<div><p>" + list[i].reply + "</p></div>";
+					str += "<button id='addReplyBtn2'>답글</button></div>";
+					//대댓글
 				}
 				
 				replyUL.html(str);
 				
 			})
 			
-		}		
+		}
+		
+		//댓글 제목 클릭시 상세조회 추가
+		$(".chat").on("click", "li", function(e){
+			var rno = $(this).data("rno");
+			
+			replyService.get(rno, function(reply){
+				modalInputReply.val(reply.reply);
+				modalInputRid.val(reply.rid);
+				modalInputReplyDate.val(replyService.displayTime(reply.replydate)).attr("readonly", "readonly");
+				modal.data("rno", reply.rno);
+				
+				modal.find("button[id != 'modalCloseBtn']").hide();
+				modalEditBtn.show();
+				modalRemoBtn.show();
+				
+				modal.modal("show");
+				
+			});			
+		});		
 	}); //end of ready함수
 	
 

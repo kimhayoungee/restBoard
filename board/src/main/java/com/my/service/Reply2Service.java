@@ -12,4 +12,10 @@ public interface Reply2Service {
 	
 	public Reply2VO getList(String bno);
 	
+	public Reply2VO getOne(int rno);
+	
+	public int deleteByRno(int rno);
+	
+	public int deleteByBno(String bno);
+	
 } //end of Reply2Service

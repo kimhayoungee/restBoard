@@ -56,4 +56,22 @@ public class Reply2Controller {
 		
 		return new ResponseEntity<>(s.getList(bno), HttpStatus.OK);
 	}
+	
+	@GetMapping(value="{rno}", produces= {MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
+	public ResponseEntity<Reply2VO> getOne(@PathVariable("rno") int rno){
+		log.info("컨트롤러 getOne " + rno);
+		
+		return new ResponseEntity<>(s.getOne(rno), HttpStatus.OK);
+	}
+	
+	@PostMapping(value="/remove/{rno}", consumes="application/json", produces= {MediaType.TEXT_PLAIN_VALUE})
+	@PreAuthorize("principal.username == #rvo.rid")
+	public ResponseEntity<String> removeByRno(@PathVariable("rno") int rno){
+		log.info("컨트롤러 removeByRno " + rno);
+		
+		int result = s.deleteByRno(rno);
+		
+		return result==1? new ResponseEntity<>("success", HttpStatus.OK)
+				         :new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 } //end of Reply2Controller

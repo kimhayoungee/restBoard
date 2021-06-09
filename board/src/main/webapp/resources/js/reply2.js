@@ -68,7 +68,7 @@ var replyService = (function(){
 	
 	function remove(rno, replyer, callback, error){
 		console.log("댓글 삭제 js");
-		var url = "/reply/remove/" + rno;
+		var url = "/reply2/remove/" + rno;
 		var encodedUrl = encodeURI(url);
 		
 		$.ajax({
@@ -91,9 +91,9 @@ var replyService = (function(){
 	} //end of remove 함수
 	
 	function get(rno, callback, error){
-		console.log("댓글 조회? ");
+		console.log("댓글 조회? " + rno);
 		
-		$.get("/reply/" + rno + ".json", function(result){
+		$.get("/reply2/" + rno + ".json", function(result){
 			if(callback){
 				callback(result);
 			}

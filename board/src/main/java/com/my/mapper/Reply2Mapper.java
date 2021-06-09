@@ -14,9 +14,11 @@ public interface Reply2Mapper {
 	
 	public List<Reply2VO> selectList(@Param("bno") String bno);
 	
-	public int deleteBybno(int bno);
+	public Reply2VO select(int rno);
 	
-	public int deleteByrno(int rno);
+	public int deleteByRno(int rno);
+	
+	public int deleteBybno(int bno);
 	
 	//댓글삭제시 대댓글삭제 로직 고민
 	

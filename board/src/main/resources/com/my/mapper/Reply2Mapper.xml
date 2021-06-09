@@ -8,7 +8,7 @@
 		insert into khy_reply2(
 			rno, bno, rupperno, rdepth, rid, reply, rdeleteyn, replydate, rupdatedate
 		)values(
-			#{rno}, #{bno}, #{rupperno, jdbcType=VARCHAR}, #{rdepth}, #{rid}, #{reply}, 'Y', sysdate, sysdate
+			seq_reply2.nextval, #{bno}, #{rupperno, jdbcType=VARCHAR}, #{rdepth}, #{rid}, #{reply}, 'Y', sysdate, sysdate
 		)
 	</insert>
 	
@@ -27,4 +27,17 @@
 		order by rno asc
 	</select>
 	
+	<select id="select" resultType="com.my.domain.Reply2VO">
+		select * 
+		from   khy_reply2
+		where  rno = #{rno}
+		and    rdeleteyn = 'Y'
+	</select>
+	
+	<update id="deleteByRno">
+		update khy_reply2
+		set    rdeleteyn = 'N'
+		      ,rupdatedate = sysdate
+		where  rno = #{rno}
+	</update>
 </mapper>

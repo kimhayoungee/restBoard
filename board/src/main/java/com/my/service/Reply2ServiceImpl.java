@@ -49,4 +49,26 @@ public class Reply2ServiceImpl implements Reply2Service {
 		return rvo;
 	}
 
+	@Override
+	public Reply2VO getOne(int rno) {
+		// TODO Auto-generated method stub
+		log.info("서비스 getOne(rno) " + rno);
+	
+		return rm.select(rno);
+	}
+
+	@Override
+	public int deleteByRno(int rno) {
+		// TODO Auto-generated method stub
+		log.info("서비스 deleteByRno " + rno);
+		
+		return rm.deleteByRno(rno);
+	}
+
+	@Override
+	public int deleteByBno(String bno) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
